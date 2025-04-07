@@ -3,18 +3,6 @@
   import Icon from "./Icon.svelte";
   import { theme } from "../lib/theme";
 
-
-  function goToRepo() {
-    // Open the repo in explorer
-    window.open(
-      "https://app.radicle.xyz/nodes/seed.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury",
-      "_blank",
-    );
-  }
-
-  function downloadApp() {
-    // Open the Radicle webpage in a new tab
-    window.open("https://radicle.xyz", "_blank");
   function toggleTheme() {
     theme.set($theme === "dark" ? "light" : "dark");
   }
