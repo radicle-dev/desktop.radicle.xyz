@@ -69,5 +69,5 @@
       </Button>
     </a>
   </div>
-  <div class="video-container">Video placeholder</div>
+  <div class="video-container"></div>
 </div>

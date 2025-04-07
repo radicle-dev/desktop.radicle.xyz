@@ -45,15 +45,14 @@
   .container {
     width: 100%;
     display: flex;
-    /* box-shadow: inset 0 0 0 1px var(--color-border-default); */
     background: var(--color-background-float);
     color: var(--color-foreground-contrast);
     height: 1000px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 4rem;
-    gap: 2rem;
+    padding: 4rem 4rem;
+    gap: 4rem;
   }
   .features-grid {
     width: 960px;
@@ -84,6 +83,7 @@
 </style>
 
 <div class="container">
+  <span class="txt-large txt-semibold">Pro features</span>
   <div class="features-grid">
     {#each features as { title, description, icon }}
       <div class="feature-box">
