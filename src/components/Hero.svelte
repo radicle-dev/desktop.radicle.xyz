@@ -2,32 +2,6 @@
   import Button from "./Button.svelte";
   import Icon from "./Icon.svelte";
 
-  import { onMount } from "svelte";
-
-  let currentTheme = "";
-
-  // Function to toggle the theme
-  const toggleTheme = () => {
-    if (currentTheme === "dark") {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.removeItem("theme");
-      currentTheme = "";
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-      currentTheme = "dark";
-    }
-  };
-
-  // Check local storage for theme on component mount
-  onMount(() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-      currentTheme = "dark";
-    }
-  });
-
   function goToRepo() {
     // Open the repo in explorer
     window.open(

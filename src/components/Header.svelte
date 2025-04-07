@@ -1,32 +1,9 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import Button from "./Button.svelte";
   import NakedButton from "./NakedButton.svelte";
   import Icon from "./Icon.svelte";
+  import { theme } from "../lib/theme";
 
-  let currentTheme = "";
-
-  // Function to toggle the theme
-  const toggleTheme = () => {
-    if (currentTheme === "dark") {
-      document.documentElement.removeAttribute("data-theme");
-      localStorage.removeItem("theme");
-      currentTheme = "";
-    } else {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
-      currentTheme = "dark";
-    }
-  };
-
-  // Check local storage for theme on component mount
-  onMount(() => {
-    const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-      currentTheme = "dark";
-    }
-  });
 
   function goToRepo() {
     // Open the repo in explorer
@@ -39,6 +16,8 @@
   function downloadApp() {
     // Open the Radicle webpage in a new tab
     window.open("https://radicle.xyz", "_blank");
+  function toggleTheme() {
+    theme.set($theme === "dark" ? "light" : "dark");
   }
 </script>
 
@@ -68,7 +47,7 @@
   <span class="title">RADWORKS</span>
   <div class="header-right">
     <NakedButton variant="ghost" onclick={toggleTheme}>
-      <Icon name={currentTheme === "dark" ? "moon" : "sun"}></Icon>
+      <Icon name={$theme === "dark" ? "moon" : "sun"}></Icon>
     </NakedButton>
     <NakedButton variant="ghost">
       <Icon size="16" name="seedling" />
