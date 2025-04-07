@@ -23,7 +23,8 @@
     title,
   }: Props = $props();
 
-  const style = $derived(    `--button-color-1: var(--color-fill-${variant});` +
+  const style = $derived(
+    `--button-color-1: var(--color-fill-${variant});` +
       `--button-color-2: var(--color-fill-${variant}-hover);` +
       `--button-color-3: var(--color-fill-${variant}-shade);` +
       // The ghost colors are called --color-fill-counter and --color-fill-counter-emphasized.

@@ -33,7 +33,6 @@
 </script>
 
 <style>
-
   .pixel {
     background-color: transparent;
   }
@@ -212,8 +211,8 @@
   }
 
   .container {
-      font-weight: 600;
-      line-height: 1;
+    font-weight: 600;
+    line-height: 1;
 
     cursor: pointer;
     white-space: nowrap;
@@ -246,8 +245,7 @@
   aria-keyshortcuts={keyShortcuts}
   role="button"
   tabindex="0"
-  {style}
-  >
+  {style}>
   <div class="pixel p1-1"></div>
   <div class="pixel p1-2"></div>
   <div class="pixel p1-3"></div>
