@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+npx tsc --noEmit
+npx svelte-check --tsconfig tsconfig.json --fail-on-warnings --compiler-warnings missing-custom-element-compile-options:ignore
+npx prettier "**/*.@(ts|js|svelte|json|css|html|yml)" "!crates/**/*" --ignore-path .gitignore --check --cache
