@@ -12,6 +12,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.a {
+  color: var(--color-foreground-emphasized);
+}
+
+a:-webkit-any-link {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-foreground-emphasized);
+}
+
+a:-webkit-any-link:hover {
+  color: var(--color-foreground-emphasized-hover);
+}
+
 .h1 {
   line-height: 2.4rem;
   font-size: 2rem;

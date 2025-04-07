@@ -211,7 +211,7 @@
   }
 
   .container {
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1;
 
     cursor: pointer;

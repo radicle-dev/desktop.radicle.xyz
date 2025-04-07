@@ -19,6 +19,7 @@
       | "chevron-down"
       | "chevron-right"
       | "clock"
+      | "clipboard"
       | "clone"
       | "collapse"
       | "collapse-panel"
@@ -89,7 +90,7 @@
     color: var(--color-foreground-dim);
   }
   .hoverable:not(.disabled):hover {
-    color: var(--color-foreground-default);
+    color: var(--color-foreground-contrast);
   }
   .disabled {
     color: var(--color-foreground-disabled);
@@ -263,6 +264,11 @@
     <path d="M7 10L8 10L8 11L7 11L7 10Z" />
     <path d="M9 8L10 8V9L9 9V8Z" />
     <path d="M8 9H9V10H8L8 9Z" />
+  {:else if name === "clipboard"}
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M5 3.5C5 2.67157 5.67157 2 6.5 2H12.5C13.3284 2 14 2.67157 14 3.5V9.5C14 10.3284 13.3284 11 12.5 11H11V12.5C11 13.3284 10.3284 14 9.5 14H3.5C2.67157 14 2 13.3284 2 12.5V6.5C2 5.67157 2.67157 5 3.5 5H5V3.5ZM5 6H3.5C3.22386 6 3 6.22386 3 6.5V12.5C3 12.7761 3.22386 13 3.5 13H9.5C9.77614 13 10 12.7761 10 12.5V11H6.5C5.67157 11 5 10.3284 5 9.5V6ZM6.5 10C6.22386 10 6 9.77614 6 9.5V3.5C6 3.22386 6.22386 3 6.5 3H12.5C12.7761 3 13 3.22386 13 3.5V9.5C13 9.77614 12.7761 10 12.5 10H6.5Z" />
   {:else if name === "clock"}
     <path d="M6 13H8V14H6V13Z" />
     <path d="M10 13H8V14H10V13Z" />

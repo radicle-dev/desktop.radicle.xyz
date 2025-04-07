@@ -1,6 +1,5 @@
 <script lang="ts">
-  import Button from "./Button.svelte";
-  import Icon from "./Icon.svelte";
+  import Command from "./Command.svelte";
 </script>
 
 <style>
@@ -10,7 +9,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 4rem;
+    padding: 4rem 4rem 1rem 4rem;
     gap: 2rem;
   }
   .hero-text {
@@ -23,9 +22,10 @@
   }
   .buttons {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
   }
   .video-container {
     background-image: url("../assets/desktop-app.png");
@@ -51,23 +51,21 @@
     </span>
     <span class="subtitle">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam
+      tempor incididunt ut labore et dolore magna aliqua. Download using the
+      following command:
     </span>
   </div>
   <div class="buttons">
-    <a href="https://app.radicle.xyz" target="_blank" rel="noopener">
-      <Button variant="ghost">
-        <Icon name="seedling"></Icon>
-        See on Radicle
-      </Button>
-    </a>
-    <a href="https://app.radicle.xyz" target="_blank" rel="noopener">
-      <Button variant="secondary">
-        <Icon name="clone"></Icon>
-        Download
-      </Button>
-    </a>
+    <Command command="curl http://some.url --output radicle-desktop.dmg"
+    ></Command>
+    <span>
+      Or check out the repository on
+      <a
+        target="_blank"
+        href="https://app.radicle.xyz/nodes/seed.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury">
+        Radicle
+      </a>
+    </span>
   </div>
   <div class="video-container"></div>
 </div>

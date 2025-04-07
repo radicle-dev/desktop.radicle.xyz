@@ -38,7 +38,7 @@
     white-space: nowrap;
     height: 100%;
 
-    font-weight: 600;
+    font-weight: 500;
 
     -webkit-touch-callout: none;
     -webkit-user-select: none;
