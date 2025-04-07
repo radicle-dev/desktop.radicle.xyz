@@ -1,5 +1,4 @@
 <script lang="ts">
-  import Button from "./Button.svelte";
   import NakedButton from "./NakedButton.svelte";
   import Icon from "./Icon.svelte";
   import { theme } from "../lib/theme";
