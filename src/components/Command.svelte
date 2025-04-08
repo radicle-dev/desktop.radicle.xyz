@@ -19,6 +19,7 @@
   .wrapper {
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
   .cmd-center {
     display: flex;
@@ -35,6 +36,7 @@
     height: 2px;
   }
   .cmd {
+    width: 100%;
     cursor: pointer;
     height: 2rem;
     line-height: 2rem;

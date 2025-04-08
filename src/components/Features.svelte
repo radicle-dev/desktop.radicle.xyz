@@ -3,40 +3,39 @@
 
   let features = [
     {
-      title: "Best feature",
-      description:
-        "This is the ultimate feature that covers all your needs, ensuring you won't require anything else ever again. It's designed to provide unparalleled convenience and efficiency in every aspect.",
-      icon: "filter",
+      title: "Offline first",
+      description: "Work on a plane or under the sea.",
+      icon: "device",
     },
     {
-      title: "Second feature",
+      title: "Transparent and tracable",
       description:
         "Almost as impressive as the best, this feature offers exceptional performance and reliability. It's a close contender that will meet most of your expectations with ease.",
       icon: "filter",
     },
     {
-      title: "Third feature",
+      title: "Review code",
       description:
         "This feature is still pretty good, delivering solid functionality and value. It stands out with its dependable performance and user-friendly design.",
       icon: "filter",
     },
     {
-      title: "Fourth feature",
+      title: "Peer-to-peer",
       description:
         "Not bad at all, this feature provides a good balance of utility and simplicity. It's a reliable choice that won't disappoint in everyday use",
       icon: "filter",
     },
     {
-      title: "Fifth feature",
+      title: "Lightning fast",
       description:
         "Quite useful, this feature adds significant value to your experience. It's designed to enhance productivity and streamline tasks effectively.",
       icon: "filter",
     },
     {
-      title: "Sixth feature",
+      title: "Dark mode",
       description:
         "You might like this one for its unique benefits and practical applications. It's a versatile addition that can cater to various needs and preferences.",
-      icon: "filter",
+      icon: "moon",
     },
   ] as const;
 </script>

@@ -11,6 +11,7 @@
 
 <style>
   .header {
+    z-index: 50;
     position: sticky;
     top: 0;
     width: 100%;

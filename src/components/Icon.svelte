@@ -30,6 +30,7 @@
       | "cross"
       | "dashboard"
       | "delegate"
+      | "device"
       | "diff"
       | "ellipsis"
       | "expand"
@@ -474,6 +475,16 @@
     <path d="M11.333 9L13.333 9V10H11.333L11.333 9Z" />
     <path d="M5.33301 6L7.33301 6L7.33301 7L5.33301 7L5.33301 6Z" />
     <path d="M5.33301 9L7.33301 9L7.33301 10H5.33301V9Z" />
+  {:else if name === "device"}
+    <path d="M5 3.5L11 3.5V4.5L5 4.5V3.5Z" />
+    <path d="M4 4.5L5 4.5L5 9.5H4L4 4.5Z" />
+    <path d="M11 4.5L12 4.5V9.5H11L11 4.5Z" />
+    <path d="M3 9.5H4L4 10.5H3V9.5Z" />
+    <path d="M12 9.5L13 9.5V10.5L12 10.5V9.5Z" />
+    <path d="M3 11.5L13 11.5V12.5L3 12.5V11.5Z" />
+    <path d="M4 8.5H12V9.5L4 9.5L4 8.5Z" />
+    <path d="M13 10.5L14 10.5L14 11.5H13L13 10.5Z" />
+    <path d="M2 10.5L3 10.5L3 11.5H2V10.5Z" />
   {:else if name === "diff"}
     <path d="M2 3H3V13H2V3Z" />
     <path d="M3 13H12V14H3L3 13Z" />
