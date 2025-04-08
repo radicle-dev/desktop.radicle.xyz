@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Command from "./Command.svelte";
-  import videoSrc from "../assets/desktop-review.webm"; // Import the video source
+  import videoSrc from "../assets/desktop-review.mp4"; // Import the video source
 
   let isPlaying = false;
 
@@ -16,7 +16,7 @@
     // Set the video source dynamically
     const source = document.createElement("source");
     source.src = videoSrc;
-    source.type = "video/webm";
+    source.type = "video/mp4";
     video.appendChild(source);
 
     // Listen for the video to be ready to play
@@ -102,7 +102,6 @@
 
   .video {
     border: 1px solid var(--color-border-hint);
-    width: fit-content; /* Adjust the width as needed */
     height: 100%; /* Adjust the height as needed */
     display: none;
   }
