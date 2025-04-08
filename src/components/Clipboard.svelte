@@ -1,5 +1,3 @@
-<svelte:options customElement="radicle-clipboard" />
-
 <script lang="ts">
   import debounce from "lodash/debounce";
   import { createEventDispatcher } from "svelte";
