@@ -47,7 +47,7 @@
 
     // Show play button when video ends
     video.addEventListener("ended", () => {
-      playButton.style.display = "block";
+      playButton.style.display = "flex";
       isPlaying = false;
     });
   });
