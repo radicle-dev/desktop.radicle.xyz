@@ -79,15 +79,19 @@
     gap: 0.5rem;
   }
 
+  @media (min-width: 1011px) {
+    .features-grid {
+      width: 960px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   @media (min-width: 719.98px) {
     .container {
       padding: 4rem 4rem;
     }
     .features-grid {
-      width: 960px;
       padding: 0 2rem;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: repeat(3, auto);
     }
   }
 </style>
