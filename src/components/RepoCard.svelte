@@ -81,15 +81,17 @@
         class="txt-semibold txt-regular"
         style="display:flex; gap:0.5rem; align-items: center;">
         <div class="badge" style:background-color="var(--color-fill-ghost)">
-          d
+          g
         </div>
-        <span>demo-repo</span>
+        <span>getting-started</span>
       </div>
-      <span style="line-height:2rem">A repo to play around with</span>
+      <span style="line-height:2rem">
+        A template repo for users to get their...
+      </span>
       <span
         class="txt-monospace txt-semibold"
         style="color:var(--color-foreground-emphasized); line-height:1rem">
-        rad:z39mP9...i473tY
+        rad:z3Wu3d...UCdv9b
       </span>
     </div>
     <div class="cmd-vertical"></div>

@@ -28,7 +28,7 @@
         Clone this repo to get started. You'll find instructions and hints to
         learn your way around Radicle.
       </span>
-      <Command command="rad clone <rid>" />
+      <Command command="rad clone rad:z3Wu3dtimpnoMAveMDFGty9UCdv9b" />
     </div>
   </div>
 </div>
