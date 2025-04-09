@@ -46,17 +46,16 @@
     display: flex;
     background: var(--color-background-float);
     color: var(--color-foreground-contrast);
-    height: 1000px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 4rem 4rem;
+    padding: 4rem 0;
     gap: 4rem;
   }
   .features-grid {
-    width: 960px;
+    padding: 0 2rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(3, auto);
     gap: 4rem;
   }
@@ -78,6 +77,18 @@
     flex-direction: column;
     align-items: start;
     gap: 0.5rem;
+  }
+
+  @media (min-width: 719.98px) {
+    .container {
+      padding: 4rem 4rem;
+    }
+    .features-grid {
+      width: 960px;
+      padding: 0 2rem;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, auto);
+    }
   }
 </style>
 

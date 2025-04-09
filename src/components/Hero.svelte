@@ -61,11 +61,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 4rem 4rem 4rem;
+    padding: 2rem 0;
     gap: 4rem;
   }
   .hero-text {
-    width: 40%;
+    max-width: 40rem;
+    padding: 0 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -73,7 +74,7 @@
     gap: 1rem;
   }
   .buttons {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -123,6 +124,15 @@
     color: var(--color-foreground-emphasized);
     font-size: 1.5rem;
     cursor: pointer;
+  }
+
+  @media (min-width: 719.98px) {
+    .container {
+      padding: 2rem 4rem 4rem 4rem;
+    }
+    .buttons {
+      display: flex;
+    }
   }
 </style>
 
