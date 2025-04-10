@@ -62,6 +62,7 @@
     video.addEventListener("ended", () => {
       playButton.style.display = "flex";
       isPlaying = false;
+      qrcodeVisible = true;
     });
   });
 </script>
