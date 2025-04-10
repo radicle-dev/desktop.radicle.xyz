@@ -62,7 +62,10 @@
       Bluesky
     </NakedButton>
     <NakedButton
-      onclick={() => window.open("https://radicle.zulipchat.com")}
+      onclick={() =>
+        window.open(
+          "https://radicle.zulipchat.com/#narrow/channel/369873-support",
+        )}
       variant="ghost">
       <Icon size="16" name="zulip" />
       Support
