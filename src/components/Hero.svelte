@@ -89,7 +89,6 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 50vh; /* Adjust the height as needed */
   }
   .preloader {
     position: absolute;
