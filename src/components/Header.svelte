@@ -43,15 +43,21 @@
     <NakedButton variant="ghost" onclick={toggleTheme}>
       <Icon name={$theme === "dark" ? "moon" : "sun"}></Icon>
     </NakedButton>
-    <NakedButton variant="ghost">
+    <NakedButton
+      onclick={() => window.open("https://radicle.xyz")}
+      variant="ghost">
       <Icon size="16" name="seedling" />
-      About
+      Radicle
     </NakedButton>
-    <NakedButton variant="ghost">
+    <NakedButton
+      variant="ghost"
+      onclick={() => window.open("https://bsky.app/profile/radicle.xyz")}>
       <Icon size="16" name="bluesky" />
       Bluesky
     </NakedButton>
-    <NakedButton variant="ghost">
+    <NakedButton
+      onclick={() => window.open("https://radicle.zulipchat.com")}
+      variant="ghost">
       <Icon size="16" name="zulip" />
       Support
     </NakedButton>
