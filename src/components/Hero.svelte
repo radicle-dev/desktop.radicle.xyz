@@ -160,7 +160,7 @@
   <div class="buttons">
     <div style:display="inline-flex">
       <OsSwitch bind:os />
-      <Command command={urls[os]}></Command>
+      <Command flatLeft command={urls[os]}></Command>
     </div>
     <span>
       Or check out the repository on

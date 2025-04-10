@@ -1,9 +1,13 @@
 <script lang="ts">
   import Clipboard from "./Clipboard.svelte";
 
-  export let command: string;
-  export let fullWidth: boolean = false;
-  export let showPrompt: boolean = true;
+  interface Props {
+    command: string;
+    fullWidth?: boolean;
+    flatLeft?: boolean;
+  }
+
+  const { command, fullWidth = false, flatLeft = false }: Props = $props();
 
   let clipboard: Clipboard;
 
@@ -80,8 +84,10 @@
 </style>
 
 <div class="wrapper" class:full-width={fullWidth}>
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div style:display="flex">
+    {#if !flatLeft}
+      <div style:width="2px" style:height="2px"></div>
+    {/if}
     <div class="cmd-horizontal"></div>
     <div style:width="2px" style:height="2px"></div>
   </div>
@@ -92,12 +98,11 @@
       tabindex="0"
       class="cmd txt-overflow"
       class:full-width={fullWidth}
-      on:click={() => {
+      onclick={() => {
         clipboard.copy();
       }}
-      on:keydown={handleKeyDown}>
-      {#if showPrompt}${/if}
-      {command}
+      onkeydown={handleKeyDown}>
+      $ {command}
       <div class="clipboard">
         <Clipboard bind:this={clipboard} text={command} />
       </div>
@@ -105,6 +110,9 @@
     <div class="cmd-vertical"></div>
   </div>
   <div style:display="flex">
+    {#if !flatLeft}
+      <div style:width="2px" style:height="2px"></div>
+    {/if}
     <div class="cmd-horizontal"></div>
     <div style:width="2px" style:height="2px"></div>
   </div>
