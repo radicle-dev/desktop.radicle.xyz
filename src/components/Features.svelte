@@ -3,39 +3,34 @@
 
   let features = [
     {
-      title: "Offline first",
-      description: "Work on a plane or under the sea.",
+      title: "Peer-to-Peer by Default",
+      description:
+        "Radicle connects devices directly in a global peer-to-peer network — no central servers, no single point of failure.<br/>You host and sync code with others just by running the app.",
       icon: "device",
     },
     {
-      title: "Transparent and tracable",
+      title: "Git-Native Collaboration",
       description:
-        "Almost as impressive as the best, this feature offers exceptional performance and reliability. It's a close contender that will meet most of your expectations with ease.",
+        "Radicle stores issues and patches inside Git, making them portable, versioned, and fully offline-friendly.<br/>Social collaboration is now as decentralized as your code.",
       icon: "filter",
     },
     {
-      title: "Review code",
+      title: "Always Local, Always Yours",
       description:
-        "This feature is still pretty good, delivering solid functionality and value. It stands out with its dependable performance and user-friendly design.",
+        "Your entire repository — code, issues, patches — lives on your machine, always available.<br/>Work offline, sync when you’re online.",
       icon: "filter",
     },
     {
-      title: "Peer-to-peer",
+      title: "No Accounts, Just Keys",
       description:
-        "Not bad at all, this feature provides a good balance of utility and simplicity. It's a reliable choice that won't disappoint in everyday use",
+        "Identities in Radicle are public keys you generate locally — no signups, passwords, or email needed.<br/>You’re in control of your identity, always.",
       icon: "filter",
     },
     {
-      title: "Lightning fast",
+      title: "Trust Through Cryptography",
       description:
-        "Quite useful, this feature adds significant value to your experience. It's designed to enhance productivity and streamline tasks effectively.",
+        "Every repository and identity is verified through cryptographic signatures, not centralized authority.",
       icon: "filter",
-    },
-    {
-      title: "Dark mode",
-      description:
-        "You might like this one for its unique benefits and practical applications. It's a versatile addition that can cater to various needs and preferences.",
-      icon: "moon",
     },
   ] as const;
 </script>
@@ -97,7 +92,7 @@
 </style>
 
 <div class="container">
-  <span class="txt-large txt-semibold">Pro features</span>
+  <span class="txt-large txt-semibold">Features</span>
   <div class="features-grid">
     {#each features as { title, description, icon }}
       <div class="feature-box">
@@ -106,7 +101,7 @@
         </div>
         <div class="feature-text">
           <span><strong>{title}</strong></span>
-          <span>{description}</span>
+          <span>{@html description}</span>
         </div>
       </div>
     {/each}

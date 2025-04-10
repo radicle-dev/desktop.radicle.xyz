@@ -152,9 +152,9 @@
       on a peer-to-peer network
     </span>
     <span class="subtitle">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Download using the
-      following command:
+      Radicle Desktop lets you manage issues, review code, and stay in sync with
+      your team — all on a peer-to-peer network. Say goodbye to platform
+      lock-in. Radicle runs locally and syncs with your network.
     </span>
   </div>
   <div class="buttons">
