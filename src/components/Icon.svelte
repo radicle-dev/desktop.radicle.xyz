@@ -6,6 +6,8 @@
     styleDisplay?: string;
     styleVerticalAlign?: string;
     name:
+      | "apple"
+      | "linux"
       | "arrow-left"
       | "arrow-right"
       | "arrow-right-hollow"
@@ -127,6 +129,12 @@
     <path d="M5.99997 13L6.99997 13L6.99997 3L5.99997 3L5.99997 13Z" />
     <path d="M2.99997 10L3.99997 10L3.99997 9L2.99997 9L2.99997 10Z" />
     <path d="M1.99997 9L2.99997 9L2.99997 8L1.99997 8L1.99997 9Z" />
+  {:else if name === "apple"}
+    <path
+      d="M9 1H10V2V3H9V4H8V3V2H9V1ZM6 4H5V5H4V6H3V11V12H4V13H5V14H7V13H9V14H11V13H12V12H13V11H12V10H11V7H12V6H13V5H12V4H11H10V5H7V4H6Z" />
+  {:else if name === "linux"}
+    <path
+      d="M10 2H6V3H4V4H3V5V6H2V11H1V13V14H3V12H4V10H3V6H4V5H6V6H7V7H9V6H10V5H12V6H13V10H12V12H13V14H15V13V11H14V6H13V5V4H12V3H10V2ZM10 7H11V9H10V7ZM6 7H5V9H6V7ZM11 10H5V11H6V12H7V13H9V12H10V11H11V10Z" />
   {:else if name === "arrow-right"}
     <path d="M14 9V8H13V9H14Z" />
     <path d="M13 10V9H12V10H13Z" />

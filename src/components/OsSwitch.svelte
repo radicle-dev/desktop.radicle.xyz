@@ -18,7 +18,7 @@
     active={os === "mac"}
     variant="ghost"
     onclick={() => (os = "mac")}>
-    <Icon name="moon" />
+    <Icon name="apple" />
     Mac
   </Button>
 
@@ -28,7 +28,7 @@
     variant="ghost"
     active={os === "linux"}
     onclick={() => (os = "linux")}>
-    <Icon name="sun" />
+    <Icon name="linux" />
     Linux
   </Button>
 </div>
