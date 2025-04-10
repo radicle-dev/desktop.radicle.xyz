@@ -186,6 +186,7 @@ a:-webkit-any-link {
 
 a:-webkit-any-link:hover {
   color: var(--color-foreground-emphasized-hover);
+  text-decoration: underline;
 }
 
 .h1 {
