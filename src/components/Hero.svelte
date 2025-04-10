@@ -2,8 +2,18 @@
   import { onMount } from "svelte";
   import Command from "./Command.svelte";
   import videoSrc from "../assets/desktop-review.mp4"; // Import the video source
+  import OsSwitch from "./OsSwitch.svelte";
+
+  const urls = {
+    mac: "curl --output radicle-desktop.dmg 'https://minio.radworks.garden/api/v1/buckets/radworks-releases/objects/download?prefix=radicle-desktop%2F2025-04-08T15%3A58%3A25Z_b2ef6e63%2FRadicle_0.1.0_aarch64.dmg'",
+    linux:
+      "curl --output radicle-desktop.AppImage 'https://minio.radworks.garden/api/v1/buckets/radworks-releases/objects/download?prefix=radicle-desktop%2F2025-04-08T15%3A58%3A25Z_b2ef6e63%2FRadicle_0.1.0_amd64.AppImage'",
+  } as const;
 
   let isPlaying = false;
+  let os: "mac" | "linux" = navigator.platform.startsWith("Mac")
+    ? "mac"
+    : "linux";
 
   onMount(() => {
     const video = document.getElementById("video") as HTMLVideoElement;
@@ -148,8 +158,10 @@
     </span>
   </div>
   <div class="buttons">
-    <Command command="curl http://some.url --output radicle-desktop.dmg"
-    ></Command>
+    <div style:display="inline-flex">
+      <OsSwitch bind:os />
+      <Command command={urls[os]}></Command>
+    </div>
     <span>
       Or check out the repository on
       <a

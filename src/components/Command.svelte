@@ -17,6 +17,7 @@
 
 <style>
   .wrapper {
+    width: 23rem;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -81,7 +82,6 @@
 <div class="wrapper" class:full-width={fullWidth}>
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div style:display="flex">
-    <div style:width="2px" style:height="2px"></div>
     <div class="cmd-horizontal"></div>
     <div style:width="2px" style:height="2px"></div>
   </div>
@@ -105,7 +105,6 @@
     <div class="cmd-vertical"></div>
   </div>
   <div style:display="flex">
-    <div style:width="2px" style:height="2px"></div>
     <div class="cmd-horizontal"></div>
     <div style:width="2px" style:height="2px"></div>
   </div>
