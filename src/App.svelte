@@ -5,6 +5,7 @@
   import Hero from "./components/Hero.svelte";
   import { theme } from "./lib/theme";
   import { scrolled } from "./lib/stores";
+  import Footer from "./components/Footer.svelte";
 
   onMount(() => {
     const mainElement = document.querySelector("main");
@@ -33,4 +34,5 @@
   <Header />
   <Hero />
   <Features />
+  <Footer />
 </main>
