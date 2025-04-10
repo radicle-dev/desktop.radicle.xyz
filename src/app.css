@@ -195,12 +195,6 @@ a:-webkit-any-link:hover {
   font-weight: 700;
 }
 
-html,
-body {
-  overflow: hidden;
-  height: 100%;
-}
-
 /* CSS Reset */
 
 /* 1. Use a more-intuitive box-sizing model */
@@ -223,6 +217,7 @@ body {
 }
 
 body {
+  overscroll-behavior: none;
   /* 4. Add accessible line-height */
   line-height: 1.5;
   /* 5. Improve text rendering */
