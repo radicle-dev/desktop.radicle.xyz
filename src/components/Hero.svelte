@@ -92,6 +92,7 @@
   }
   .video-container {
     position: relative;
+    padding: 0 4rem;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
@@ -163,11 +164,11 @@
       <Command flatLeft command={urls[os]}></Command>
     </div>
     <span>
-      Or check out the repository on
+      Or check out the
       <a
         target="_blank"
         href="https://app.radicle.xyz/nodes/seed.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury">
-        Radicle
+        source code
       </a>
     </span>
   </div>
