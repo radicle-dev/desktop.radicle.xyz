@@ -7,7 +7,7 @@
     position: absolute;
     bottom: 2rem;
     right: 2rem;
-    display: flex;
+    display: none;
     background: var(--color-background-float);
     border: 1px solid var(--color-border-hint);
     color: var(--color-foreground-contrast);
@@ -15,6 +15,12 @@
     padding: 0.5rem;
     padding-right: 2rem;
     gap: 1rem;
+  }
+
+  @media (min-width: 719.98px) {
+    .container {
+      display: flex;
+    }
   }
 </style>
 

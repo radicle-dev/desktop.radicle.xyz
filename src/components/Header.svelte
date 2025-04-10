@@ -28,10 +28,16 @@
     color: var(--color-foreground-contrast);
   }
   .header-right {
-    gap: irem;
-    display: flex;
+    gap: 1rem;
+    display: none;
     justify-content: space-between;
     align-items: center;
+  }
+
+  @media (min-width: 719.98px) {
+    .header-right {
+      display: flex;
+    }
   }
 </style>
 
