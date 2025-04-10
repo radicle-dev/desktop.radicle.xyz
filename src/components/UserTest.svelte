@@ -1,6 +1,5 @@
 <script lang="ts">
-  import userTestQR from "../assets/user-test-qr.png";
-  import QRsvg from "./QR.svg?url";
+  import Qr from "./QR.svelte";
 </script>
 
 <style>
@@ -14,27 +13,23 @@
     color: var(--color-foreground-contrast);
     align-items: center;
     padding: 0.5rem;
+    padding-right: 2rem;
     gap: 1rem;
   }
 </style>
 
 <div class="container">
-  <img src={QRsvg} alt="QR to book user test" />
-  <img
-    style="width:6rem; height:6rem;"
-    alt="Help Shape the Future of Our App!"
-    src={userTestQR} />
+  <Qr />
   <div
     class="txt-small"
-    style="display: flex; flex-direction: column; gap: 0.25rem; width:100%;">
+    style="display: flex; flex-direction: column; gap: 0.25rem;">
     <span class="txt-semibold">Help Shape Our App's Future!</span>
-    <span style="width:240px">
-      Join our user tests and share your insights.
-    </span>
+    <span>Join our user tests and share your insights.</span>
     <a
       style="width:100%"
       href="https://calendly.com/dnl-klmn/radicle-user-test"
-      target="_blak">
+      target="_blank"
+      rel="noopener">
       Sign Up Now!
     </a>
   </div>

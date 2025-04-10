@@ -6,8 +6,9 @@
   import { theme } from "./lib/theme";
   import { scrolled } from "./lib/stores";
   import Footer from "./components/Footer.svelte";
-  import AwesomeRepos from "./components/AwesomeRepos.svelte";
   import UserTest from "./components/UserTest.svelte";
+
+  let qrcodeVisible = $state(true);
 
   onMount(() => {
     const mainElement = document.querySelector("main");
@@ -34,9 +35,10 @@
 
 <main>
   <Header />
-  <Hero />
+  <Hero bind:qrcodeVisible />
   <Features />
   <Footer />
-  <AwesomeRepos />
-  <UserTest />
+  {#if qrcodeVisible}
+    <UserTest />
+  {/if}
 </main>
