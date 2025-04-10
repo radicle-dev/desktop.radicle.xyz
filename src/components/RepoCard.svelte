@@ -76,24 +76,29 @@
   </div>
   <div class="cmd-center">
     <div class="cmd-vertical"></div>
-    <div role="button" tabindex="0" class="cmd txt-overflow">
-      <div
-        class="txt-semibold txt-regular"
-        style="display:flex; gap:0.5rem; align-items: center;">
-        <div class="badge" style:background-color="var(--color-fill-ghost)">
-          g
+    <a
+      href="https://app.radicle.xyz/nodes/seed.radicle.garden/rad:z3Wu3dtimpnoMAveMDFGty9UCdv9b"
+      target="_blank"
+      rel="noopener">
+      <div role="button" tabindex="0" class="cmd txt-overflow">
+        <div
+          class="txt-semibold txt-regular"
+          style="display:flex; gap:0.5rem; align-items: center;">
+          <div class="badge" style:background-color="var(--color-fill-ghost)">
+            g
+          </div>
+          <span>getting-started</span>
         </div>
-        <span>getting-started</span>
+        <span style="line-height:2rem">
+          A template repo for users to get their...
+        </span>
+        <span
+          class="txt-monospace txt-semibold"
+          style="color:var(--color-foreground-emphasized); line-height:1rem">
+          rad:z3Wu3d...UCdv9b
+        </span>
       </div>
-      <span style="line-height:2rem">
-        A template repo for users to get their...
-      </span>
-      <span
-        class="txt-monospace txt-semibold"
-        style="color:var(--color-foreground-emphasized); line-height:1rem">
-        rad:z3Wu3d...UCdv9b
-      </span>
-    </div>
+    </a>
     <div class="cmd-vertical"></div>
   </div>
   <div id="top-horizontal-2" style:display="flex">
