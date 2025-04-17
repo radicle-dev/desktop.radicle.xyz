@@ -6,15 +6,18 @@
 
   let { qrcodeVisible = $bindable() }: { qrcodeVisible: boolean } = $props();
 
-  const urls = {
-    mac: "curl --output radicle-desktop.dmg 'https://minio.radworks.garden/api/v1/buckets/radworks-releases/objects/download?prefix=radicle-desktop%2F2025-04-08T15%3A58%3A25Z_b2ef6e63%2FRadicle_0.1.0_aarch64.dmg'",
-    linux:
-      "curl --output radicle-desktop.AppImage 'https://minio.radworks.garden/api/v1/buckets/radworks-releases/objects/download?prefix=radicle-desktop%2F2025-04-08T15%3A58%3A25Z_b2ef6e63%2FRadicle_0.1.0_amd64.AppImage'",
-  } as const;
+  const files = {
+    mac: { extension: "dmg", name: "Radicle_0.1.0_aarch64.dmg" },
+    linux: { extension: "AppImage", name: "Radicle_0.1.0_amd64.AppImage" },
+  };
 
   let isPlaying = false;
   let os: "mac" | "linux" = $state(
     navigator.platform.startsWith("Mac") ? "mac" : "linux",
+  );
+
+  const command = $derived(
+    `curl --output radicle-desktop.${files[os].extension} 'https://minio-api.radworks.garden/radworks-releases/radicle-desktop/2025-04-08T15:58:25Z_b2ef6e63/${files[os].name}'`,
   );
 
   onMount(() => {
@@ -165,7 +168,7 @@
   <div class="buttons">
     <div style:display="inline-flex">
       <OsSwitch bind:os />
-      <Command flatLeft command={urls[os]}></Command>
+      <Command flatLeft {command}></Command>
     </div>
     <span>
       Or check out the
