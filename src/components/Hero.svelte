@@ -6,9 +6,13 @@
 
   let { qrcodeVisible = $bindable() }: { qrcodeVisible: boolean } = $props();
 
+  const version = "0.2.0";
+  const releaseFolder = "2025-04-25T09:50:08Z_08d467b9";
+  const buildSha = releaseFolder.split("_")[1];
+
   const files = {
-    mac: { extension: "dmg", name: "Radicle_0.1.0_aarch64.dmg" },
-    linux: { extension: "AppImage", name: "Radicle_0.1.0_amd64.AppImage" },
+    mac: { extension: "dmg", name: `Radicle_${version}_aarch64.dmg` },
+    linux: { extension: "AppImage", name: `Radicle_${version}_amd64.AppImage` },
   };
 
   let isPlaying = false;
@@ -17,7 +21,7 @@
   );
 
   const command = $derived(
-    `curl --output radicle-desktop.${files[os].extension} 'https://minio-api.radworks.garden/radworks-releases/radicle-desktop/2025-04-08T15:58:25Z_b2ef6e63/${files[os].name}'`,
+    `curl --output radicle-desktop-${version}-${buildSha}.${files[os].extension} 'https://minio-api.radworks.garden/radworks-releases/radicle-desktop/${releaseFolder}/${files[os].name}'`,
   );
 
   onMount(() => {
