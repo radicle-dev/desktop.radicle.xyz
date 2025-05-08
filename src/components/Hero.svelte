@@ -6,8 +6,8 @@
 
   let { qrcodeVisible = $bindable() }: { qrcodeVisible: boolean } = $props();
 
-  const version = "0.2.0";
-  const releaseFolder = "2025-04-25T09:50:08Z_08d467b9";
+  const version = "0.3.0";
+  const releaseFolder = "2025-05-08T16:24:32Z_25c6ab32";
   const buildSha = releaseFolder.split("_")[1];
 
   const files = {
