@@ -195,6 +195,12 @@ a:-webkit-any-link:hover {
   font-weight: 700;
 }
 
+.h2 {
+  line-height: 2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
 /* CSS Reset */
 
 /* 1. Use a more-intuitive box-sizing model */

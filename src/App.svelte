@@ -7,8 +7,9 @@
   import { scrolled } from "./lib/stores";
   import Footer from "./components/Footer.svelte";
   import UserTest from "./components/UserTest.svelte";
+  import AboutRadicle from "./components/AboutRadicle.svelte";
 
-  let qrcodeVisible = $state(true);
+  let qrcodeVisible = $state(false);
 
   onMount(() => {
     const mainElement = document.querySelector("main");
@@ -36,6 +37,7 @@
 <main>
   <Header />
   <Hero bind:qrcodeVisible />
+  <AboutRadicle />
   <Features />
   <Footer />
   {#if qrcodeVisible}

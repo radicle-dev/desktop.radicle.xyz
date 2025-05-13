@@ -1,38 +1,39 @@
 <script lang="ts">
-  import Clipboard from "./Clipboard.svelte";
-
   interface Props {
-    command: string;
     fullWidth?: boolean;
     flatLeft?: boolean;
+    flatTop?: boolean;
+    flatBottom?: boolean;
   }
 
-  const { command, fullWidth = false, flatLeft = false }: Props = $props();
-
-  let clipboard: Clipboard;
-
-  function handleKeyDown(event: KeyboardEvent) {
-    if (event.key === "Enter" || event.key === " ") {
-      clipboard.copy();
-      event.preventDefault(); // Prevent default action for space key
-    }
-  }
+  const {
+    fullWidth = false,
+    flatLeft = false,
+    flatTop = false,
+    flatBottom = true,
+  }: Props = $props();
 </script>
 
 <style>
+  .inner-box {
+    width: 100%;
+    flex: 1;
+    padding: 0;
+  }
+
   .wrapper {
     width: 25rem;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    min-height: 3rem;
   }
   .cmd-center {
     display: flex;
+    height: 100%;
   }
   .cmd-vertical {
     background: var(--color-fill-ghost);
     width: 2px;
-    height: 100%;
   }
   .cmd-horizontal {
     background: var(--color-border-hint);
@@ -74,46 +75,31 @@
     width: 100%;
   }
 
-  /* Add these styles to change colors on hover */
-  .wrapper:hover .cmd-vertical,
-  .wrapper:hover .cmd-horizontal {
-    background: var(
-      --color-fill-secondary
-    ); /* Replace with your desired hover color */
-  }
+
 </style>
 
 <div class="wrapper" class:full-width={fullWidth}>
   <div style:display="flex">
-    {#if !flatLeft}
+    {#if !flatTop}
       <div style:width="2px" style:height="2px"></div>
     {/if}
     <div class="cmd-horizontal"></div>
-    <div style:width="2px" style:height="2px"></div>
+    {#if !flatTop}
+      <div style:width="2px" style:height="2px"></div>
+    {/if}
   </div>
   <div class="cmd-center">
     <div class="cmd-vertical"></div>
-    <div
-      role="button"
-      tabindex="0"
-      class="cmd txt-overflow"
-      class:full-width={fullWidth}
-      onclick={() => {
-        clipboard.copy();
-      }}
-      onkeydown={handleKeyDown}>
-      $ {command}
-      <div class="clipboard">
-        <Clipboard bind:this={clipboard} text={command} />
-      </div>
-    </div>
+    <div class="inner-box"><slot /></div>
     <div class="cmd-vertical"></div>
   </div>
   <div style:display="flex">
-    {#if !flatLeft}
+    {#if !flatBottom}
       <div style:width="2px" style:height="2px"></div>
     {/if}
     <div class="cmd-horizontal"></div>
-    <div style:width="2px" style:height="2px"></div>
+    {#if !flatBottom}
+      <div style:width="2px" style:height="2px"></div>
+    {/if}
   </div>
 </div>

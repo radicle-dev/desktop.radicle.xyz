@@ -1,28 +1,34 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import Command from "./Command.svelte";
+  import { fade } from "svelte/transition";
   import videoSrc from "../assets/desktop-review.mp4"; // Import the video source
-  import OsSwitch from "./OsSwitch.svelte";
+  import Download from "./Download.svelte";
 
   let { qrcodeVisible = $bindable() }: { qrcodeVisible: boolean } = $props();
 
-  const version = "0.3.0";
-  const releaseFolder = "2025-05-08T16:24:32Z_25c6ab32";
-  const buildSha = releaseFolder.split("_")[1];
-
-  const files = {
-    mac: { extension: "dmg", name: `Radicle_${version}_aarch64.dmg` },
-    linux: { extension: "AppImage", name: `Radicle_${version}_amd64.AppImage` },
-  };
-
   let isPlaying = false;
-  let os: "mac" | "linux" = $state(
-    navigator.platform.startsWith("Mac") ? "mac" : "linux",
-  );
+  let lightboxOpen = $state(false);
+  let lightboxVideo: HTMLVideoElement;
 
-  const command = $derived(
-    `curl --output radicle-desktop-${version}-${buildSha}.${files[os].extension} 'https://minio-api.radworks.garden/radworks-releases/radicle-desktop/${releaseFolder}/${files[os].name}'`,
-  );
+  function openLightbox() {
+    lightboxOpen = true;
+    document.body.style.overflow = "hidden"; // Prevent scrolling when lightbox is open
+  }
+
+  function closeLightbox() {
+    lightboxOpen = false;
+    document.body.style.overflow = "";
+    if (lightboxVideo) {
+      lightboxVideo.pause();
+    }
+  }
+
+  function handleLightboxClick(event) {
+    // Check if clicked on the lightbox background (not the video itself)
+    if (event.target.classList.contains("lightbox")) {
+      closeLightbox();
+    }
+  }
 
   onMount(() => {
     const video = document.getElementById("video") as HTMLVideoElement;
@@ -51,18 +57,16 @@
       preloader.textContent = "Failed to load video";
     });
 
-    // Handle play/pause functionality
+    // Handle play button click
     playButton.addEventListener("click", () => {
-      if (isPlaying) {
-        video.pause();
-        playButton.style.display = "block";
-      } else {
-        video.play();
-        qrcodeVisible = false;
-        playButton.style.display = "none";
-        video.setAttribute("controls", "controls"); // Show video controls
+      openLightbox();
+    });
+
+    // Make video clickable to open lightbox
+    video.addEventListener("click", () => {
+      if (!isPlaying) {
+        openLightbox();
       }
-      isPlaying = !isPlaying;
     });
 
     // Show play button when video ends
@@ -82,35 +86,57 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem 0;
-    gap: 4rem;
+    gap: 2rem;
   }
+
+  @media (min-width: 1024px) {
+    .container {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 2rem;
+      gap: 4rem;
+    }
+  }
+
   .hero-text {
-    max-width: 40rem;
-    padding: 0 2rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     gap: 1rem;
   }
-  .buttons {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
+
+  @media (min-width: 1024px) {
+    .hero-text {
+      padding: 6rem 2rem;
+      flex: 2;
+      align-items: flex-start;
+      text-align: left;
+      max-width: 40%;
+    }
   }
+
   .video-container {
     position: relative;
-    padding: 0 4rem;
+    padding: 0;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: top;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: min(560px, 100%);
+  }
+
+  @media (min-width: 1024px) {
+    .video-container {
+      flex: 3;
+      padding: 0;
+      width: min(750px, 100%);
+    }
   }
   .preloader {
     position: absolute;
@@ -124,12 +150,15 @@
 
   .video {
     border: 1px solid var(--color-border-hint);
-    height: 100%; /* Adjust the height as needed */
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
     display: none;
+    border-radius: 8px;
+    cursor: pointer;
+    object-fit: cover;
   }
-  .buttons a {
-    text-decoration: none;
-  }
+
   .play-button {
     position: absolute;
     top: 50%;
@@ -145,14 +174,83 @@
     color: var(--color-foreground-emphasized);
     font-size: 1.5rem;
     cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 2rem;
+    box-sizing: border-box;
+    backdrop-filter: blur(5px);
+  }
+
+  .lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  .lightbox-video {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    object-fit: contain;
+  }
+
+  .close-button {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    width: 36px;
+    height: 36px;
+    background-color: var(--color-foreground-white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-foreground-emphasized);
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    line-height: 1;
+    padding-bottom: 2px;
+    z-index: 1001;
   }
 
   @media (min-width: 719.98px) {
     .container {
       padding: 2rem 4rem 4rem 4rem;
     }
-    .buttons {
-      display: flex;
+  }
+
+  @media (max-width: 1023.98px) {
+    .container {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .close-button {
+      top: 1rem;
+      right: 1rem;
     }
   }
 </style>
@@ -168,20 +266,7 @@
       your team — all on a peer-to-peer network. Say goodbye to platform
       lock-in. Radicle runs locally and syncs with your network.
     </span>
-  </div>
-  <div class="buttons">
-    <div style:display="inline-flex">
-      <OsSwitch bind:os />
-      <Command flatLeft {command}></Command>
-    </div>
-    <span>
-      Or check out the
-      <a
-        target="_blank"
-        href="https://app.radicle.xyz/nodes/seed.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury">
-        source code
-      </a>
-    </span>
+    <Download />
   </div>
   <div class="video-container">
     <div class="preloader">Loading...</div>
@@ -191,4 +276,31 @@
     </video>
     <div class="play-button">▶</div>
   </div>
+
+  {#if lightboxOpen}
+    <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <div
+      class="lightbox"
+      on:click={handleLightboxClick}
+      transition:fade={{ duration: 200 }}>
+      <div class="lightbox-content">
+        <button
+          class="close-button"
+          on:click={closeLightbox}
+          aria-label="Close video">
+          ×
+        </button>
+        <video
+          bind:this={lightboxVideo}
+          id="lightbox-video"
+          class="lightbox-video"
+          controls
+          autoplay>
+          <source src={videoSrc} type="video/mp4" />
+          <track kind="captions" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  {/if}
 </div>

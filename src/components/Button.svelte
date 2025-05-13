@@ -10,6 +10,7 @@
     flatLeft?: boolean;
     flatRight?: boolean;
     title?: string;
+    fixedWidth?: string;
   }
 
   const {
@@ -21,6 +22,7 @@
     flatLeft = false,
     flatRight = false,
     title,
+    fixedWidth,
   }: Props = $props();
 
   const style = $derived(
@@ -29,7 +31,8 @@
       `--button-color-3: var(--color-fill-${variant}-shade);` +
       // The ghost colors are called --color-fill-counter and --color-fill-counter-emphasized.
       `--button-color-4: var(--color-fill${variant === "ghost" ? "" : `-${variant}`}-counter);` +
-      `--text-color: ${variant === "ghost" ? "var(--color-foreground-contrast)" : "var(--color-foreground-white)"}`,
+      `--text-color: ${variant === "ghost" ? "var(--color-foreground-contrast)" : "var(--color-foreground-white)"}` +
+      (fixedWidth ? `; width: ${fixedWidth}` : ""),
   );
 </script>
 
