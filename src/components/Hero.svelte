@@ -4,8 +4,6 @@
   import videoSrc from "../assets/desktop-review.mp4"; // Import the video source
   import Download from "./Download.svelte";
 
-  let { qrcodeVisible = $bindable() }: { qrcodeVisible: boolean } = $props();
-
   let isPlaying = false;
   let lightboxOpen = $state(false);
   let lightboxVideo: HTMLVideoElement | undefined = $state();
@@ -73,7 +71,6 @@
     video.addEventListener("ended", () => {
       playButton.style.display = "flex";
       isPlaying = false;
-      qrcodeVisible = true;
     });
   });
 </script>

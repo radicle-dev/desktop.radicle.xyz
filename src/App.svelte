@@ -8,9 +8,6 @@
   import Footer from "./components/Footer.svelte";
   import Header from "./components/Header.svelte";
   import Hero from "./components/Hero.svelte";
-  import UserTest from "./components/UserTest.svelte";
-
-  let qrcodeVisible = $state(false);
 
   onMount(() => {
     const mainElement = document.querySelector("main");
@@ -37,11 +34,8 @@
 
 <main>
   <Header />
-  <Hero bind:qrcodeVisible />
+  <Hero />
   <AboutRadicle />
   <Features />
   <Footer />
-  {#if qrcodeVisible}
-    <UserTest />
-  {/if}
 </main>
