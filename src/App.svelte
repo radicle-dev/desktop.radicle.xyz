@@ -1,13 +1,14 @@
 <script lang="ts">
   import { onMount } from "svelte";
+  import { scrolled } from "./lib/stores";
+  import { theme } from "./lib/theme";
+
+  import AboutRadicle from "./components/AboutRadicle.svelte";
   import Features from "./components/Features.svelte";
+  import Footer from "./components/Footer.svelte";
   import Header from "./components/Header.svelte";
   import Hero from "./components/Hero.svelte";
-  import { theme } from "./lib/theme";
-  import { scrolled } from "./lib/stores";
-  import Footer from "./components/Footer.svelte";
   import UserTest from "./components/UserTest.svelte";
-  import AboutRadicle from "./components/AboutRadicle.svelte";
 
   let qrcodeVisible = $state(false);
 

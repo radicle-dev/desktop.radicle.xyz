@@ -8,7 +8,7 @@
 
   let isPlaying = false;
   let lightboxOpen = $state(false);
-  let lightboxVideo: HTMLVideoElement;
+  let lightboxVideo: HTMLVideoElement | undefined = $state();
 
   function openLightbox() {
     lightboxOpen = true;
@@ -23,7 +23,7 @@
     }
   }
 
-  function handleLightboxClick(event) {
+  function handleLightboxClick(event: any) {
     // Check if clicked on the lightbox background (not the video itself)
     if (event.target.classList.contains("lightbox")) {
       closeLightbox();
@@ -279,14 +279,15 @@
 
   {#if lightboxOpen}
     <!-- svelte-ignore a11y_click_events_have_key_events -->
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
     <div
       class="lightbox"
-      on:click={handleLightboxClick}
+      onclick={handleLightboxClick}
       transition:fade={{ duration: 200 }}>
       <div class="lightbox-content">
         <button
           class="close-button"
-          on:click={closeLightbox}
+          onclick={closeLightbox}
           aria-label="Close video">
           ×
         </button>

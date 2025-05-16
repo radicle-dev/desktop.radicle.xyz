@@ -148,12 +148,6 @@
     gap: 2px;
   }
 
-  .feature-block {
-    cursor: pointer;
-    overflow: hidden;
-    min-height: 80px;
-  }
-
   .feature-box {
     background: var(--color-fill-ghost);
     padding: 0.75rem 1rem;
@@ -210,21 +204,27 @@
         <div class="widget-container">
           <div class="blocks-container">
             {#each features as feature, index}
+              <!-- svelte-ignore a11y_click_events_have_key_events -->
+              <!-- svelte-ignore a11y_no_static_element_interactions -->
+              <!-- svelte-ignore a11y_mouse_events_have_key_events -->
               <div
                 class="feature-box"
                 class:expanded={selectedFeatureIndex === index}
-                on:mouseover={() => !hasTouchSupport && selectFeature(index)}
-                on:click={e => handleInteraction(index, e)}
-                on:touchstart|preventDefault={() => selectFeature(index)}>
+                onmouseover={() => !hasTouchSupport && selectFeature(index)}
+                onclick={e => handleInteraction(index, e)}
+                ontouchstart={() => {
+                  selectFeature(index);
+                }}>
                 <div class="feature-title">{feature.title}</div>
                 {#if selectedFeatureIndex === index}
                   <div class="feature-description">
                     {@html feature.description}
                     {#if index === 0}
+                      <!-- svelte-ignore a11y_invalid_attribute -->
                       <a
                         href="#"
                         class="download-link"
-                        on:click={e => {
+                        onclick={e => {
                           e.preventDefault();
                           scrollToTop();
                         }}>

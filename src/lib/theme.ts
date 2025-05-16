@@ -1,17 +1,17 @@
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 import { literal, union, z } from "zod";
 
 const themeSchema = union([literal("dark"), literal("light")]);
 type Theme = z.infer<typeof themeSchema>;
 
 function isBrowser(): boolean {
-  return typeof window !== 'undefined';
+  return typeof window !== "undefined";
 }
 
 function loadTheme(): Theme {
-  if (!isBrowser()) return 'light';
-  
-  const stored = localStorage.getItem('theme');
+  if (!isBrowser()) return "light";
+
+  const stored = localStorage.getItem("theme");
   if (stored && themeSchema.safeParse(stored).success) {
     return stored as Theme;
   }
@@ -27,10 +27,10 @@ function createThemeStore() {
     subscribe,
     set: (value: Theme) => {
       if (isBrowser()) {
-        localStorage.setItem('theme', value);
+        localStorage.setItem("theme", value);
       }
       set(value);
-    }
+    },
   };
 }
 

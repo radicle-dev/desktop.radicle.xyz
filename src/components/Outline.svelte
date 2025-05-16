@@ -1,16 +1,18 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
+
   interface Props {
     fullWidth?: boolean;
-    flatLeft?: boolean;
     flatTop?: boolean;
     flatBottom?: boolean;
+    children: Snippet;
   }
 
   const {
     fullWidth = false,
-    flatLeft = false,
     flatTop = false,
     flatBottom = true,
+    children,
   }: Props = $props();
 </script>
 
@@ -41,41 +43,10 @@
     width: 100%;
     height: 2px;
   }
-  .cmd {
-    width: 100%;
-    cursor: pointer;
-    height: 2rem;
-    line-height: 2rem;
-    border-radius: var(--border-radius-small);
-    display: inline-block;
-    font-family: var(--font-family-monospace);
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-regular);
-    padding: 0 2rem 0 0.75rem;
-    position: relative;
-    color: var(--color-foreground-dim);
-    user-select: none;
-  }
-  .cmd:hover {
-    color: var(--color-foreground-contrast);
-  }
-  .clipboard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 2rem;
-    height: 100%;
-  }
 
-  .full-width.wrapper,
-  .full-width.cmd {
+  .full-width.wrapper {
     width: 100%;
   }
-
-
 </style>
 
 <div class="wrapper" class:full-width={fullWidth}>
@@ -90,7 +61,7 @@
   </div>
   <div class="cmd-center">
     <div class="cmd-vertical"></div>
-    <div class="inner-box"><slot /></div>
+    <div class="inner-box">{@render children()}</div>
     <div class="cmd-vertical"></div>
   </div>
   <div style:display="flex">
