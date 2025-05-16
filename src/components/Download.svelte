@@ -3,39 +3,35 @@
   import Button from "./Button.svelte";
   import Icon from "./Icon.svelte";
 
-  const version = "0.3.0";
-  const releaseFolder = "2025-05-08T16:24:32Z_25c6ab32";
-  const buildSha = releaseFolder.split("_")[1];
-
   const files = {
-    mac: {
-      extension: "dmg",
-      name: `Radicle_${version}_aarch64.dmg`,
-      label: "Mac (arm64)",
+    dmg: {
+      icon: "apple",
+      name: "radicle-desktop-aarch64.dmg",
+      label: "Apple Silicon",
     },
-    linux: {
-      extension: "AppImage",
-      name: `Radicle_${version}_amd64.AppImage`,
-      label: "Linux (amd64)",
+    appimage: {
+      icon: "linux",
+      name: "radicle-desktop-amd64.AppImage",
+      label: "Linux AppImage",
     },
-  };
+  } as const;
 
-  let os: "mac" | "linux" = $state(
-    navigator.platform.startsWith("Mac") ? "mac" : "linux",
+  let target: keyof typeof files = $state(
+    navigator.platform.startsWith("Mac") ? "dmg" : "appimage",
   );
 
   let dropdownOpen = $state(false);
 
   const command = $derived(
-    `curl --output radicle-desktop-${version}-${buildSha}.${files[os].extension} 'https://minio-api.radworks.garden/radworks-releases/radicle-desktop/${releaseFolder}/${files[os].name}'`,
+    `curl -OJ https://minio-api.radworks.garden/radworks-releases/radicle-desktop/latest/${target}/${files[target].name}`,
   );
 
   function toggleDropdown() {
     dropdownOpen = !dropdownOpen;
   }
 
-  function selectOs(selectedOs: "mac" | "linux") {
-    os = selectedOs;
+  function selectTarget(selectedTarget: keyof typeof files) {
+    target = selectedTarget;
     dropdownOpen = false;
   }
 </script>
@@ -121,21 +117,23 @@
         onclick={toggleDropdown}>
         <div class="os-button-content">
           <div class="os-label">
-            <Icon name={os === "mac" ? "apple" : "linux"} />
-            {files[os].label}
+            <Icon name={files[target].icon} />
+            {files[target].label}
           </div>
           <Icon name="chevron-down" />
         </div>
       </Button>
       <div class="dropdown-content" class:show={dropdownOpen}>
-        <div class="dropdown-item" on:click={() => selectOs("mac")}>
-          <Icon name="apple" />
-          Mac (arm64)
-        </div>
-        <div class="dropdown-item" on:click={() => selectOs("linux")}>
-          <Icon name="linux" />
-          Linux (amd64)
-        </div>
+        {#each Object.entries(files) as [extension, file]}
+          <!-- svelte-ignore a11y_click_events_have_key_events -->
+          <!-- svelte-ignore a11y_no_static_element_interactions -->
+          <div
+            class="dropdown-item"
+            onclick={() => selectTarget(extension as keyof typeof files)}>
+            <Icon name={file.icon} />
+            {file.label}
+          </div>
+        {/each}
       </div>
     </div>
     <div style:flex="1" style:width="100%" style:overflow="hidden">
@@ -143,7 +141,7 @@
     </div>
   </div>
   <div class="download-instructions">
-    {#if os === "mac"}
+    {#if target === "dmg"}
       <p>
         Download and open the DMG file, then drag the Radicle app to your
         Applications folder.
