@@ -65,6 +65,7 @@
     background: var(--color-background-float);
     padding: 0.1rem 0.3rem;
     border-radius: 3px;
+    white-space: pre;
   }
   .dropdown {
     position: relative;
@@ -147,18 +148,22 @@
         Applications folder.
       </p>
     {:else}
+      <!-- prettier-ignore -->
       <p>
-        Download, make the file executable with <code>chmod +x</code>
-        , and run it.
+        Download, make the file executable with <code>chmod +x</code>, and run
+        it.
       </p>
     {/if}
   </div>
   <span class="or-source-code">
     Or check out the
-    <a
-      target="_blank"
-      href="https://app.radicle.xyz/nodes/seed.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury">
-      source code.
-    </a>
+    <!-- prettier-ignore -->
+    <span>
+      <a
+        target="_blank"
+        href="https://app.radicle.xyz/nodes/seed.radicle.xyz/rad:z4D5UCArafTzTQpDZNQRuqswh3ury">
+        source code
+      </a>.
+    </span>
   </span>
 </div>
