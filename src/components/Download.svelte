@@ -70,6 +70,10 @@
   .dropdown {
     position: relative;
     display: inline-block;
+    border: 0;
+    width: 100%;
+    background-color: var(--color-background-default);
+    color: var(--color-foreground-default);
   }
   .dropdown-content {
     display: none;
@@ -126,14 +130,12 @@
       </Button>
       <div class="dropdown-content" class:show={dropdownOpen}>
         {#each Object.entries(files) as [extension, file]}
-          <!-- svelte-ignore a11y_click_events_have_key_events -->
-          <!-- svelte-ignore a11y_no_static_element_interactions -->
-          <div
+          <button
             class="dropdown-item"
             onclick={() => selectTarget(extension as keyof typeof files)}>
             <Icon name={file.icon} />
             {file.label}
-          </div>
+          </button>
         {/each}
       </div>
     </div>
