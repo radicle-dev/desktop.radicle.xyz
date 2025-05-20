@@ -1,39 +1,35 @@
 <script lang="ts">
-  import Command from "./Command.svelte";
   import Button from "./Button.svelte";
+  import Command from "./Command.svelte";
   import Icon from "./Icon.svelte";
 
-  const files = {
-    dmg: {
+  const buildSha = "25c6ab322b697ace4bd30bce2c515e659a14bccb";
+
+  const platforms = {
+    macOS: {
       icon: "apple",
-      name: "radicle-desktop-aarch64.dmg",
       label: "Apple Silicon",
+      command:
+        "curl -OJ https://minio-api.radworks.garden/radworks-releases/radicle-desktop/latest/dmg/radicle-desktop-aarch64.dmg",
     },
-    appimage: {
+    Linux: {
       icon: "linux",
-      name: "radicle-desktop-amd64.AppImage",
+      command:
+        "curl -OJ https://minio-api.radworks.garden/radworks-releases/radicle-desktop/latest/appimage/radicle-desktop-amd64.AppImage",
       label: "Linux AppImage",
+    },
+    NixOS: {
+      icon: "nixos",
+      label: "NixOS",
+      command: `nix run git+https://seed.radicle.xyz/z4D5UCArafTzTQpDZNQRuqswh3ury.git?rev=${buildSha}`,
     },
   } as const;
 
-  let target: keyof typeof files = $state(
-    navigator.platform.startsWith("Mac") ? "dmg" : "appimage",
+  let target: keyof typeof platforms = $state(
+    navigator.platform.startsWith("Mac") ? "macOS" : "Linux",
   );
 
   let dropdownOpen = $state(false);
-
-  const command = $derived(
-    `curl -OJ https://minio-api.radworks.garden/radworks-releases/radicle-desktop/latest/${target}/${files[target].name}`,
-  );
-
-  function toggleDropdown() {
-    dropdownOpen = !dropdownOpen;
-  }
-
-  function selectTarget(selectedTarget: keyof typeof files) {
-    target = selectedTarget;
-    dropdownOpen = false;
-  }
 </script>
 
 <style>
@@ -70,10 +66,6 @@
   .dropdown {
     position: relative;
     display: inline-block;
-    border: 0;
-    width: 100%;
-    background-color: var(--color-background-default);
-    color: var(--color-foreground-default);
   }
   .dropdown-content {
     display: none;
@@ -95,6 +87,10 @@
     align-items: center;
     gap: 6px;
     cursor: pointer;
+    border: 0;
+    width: 100%;
+    background-color: var(--color-background-default);
+    color: var(--color-foreground-default);
   }
   .dropdown-item:hover {
     background-color: var(--color-background-float);
@@ -119,41 +115,50 @@
         fixedWidth="200px"
         variant="ghost"
         flatRight
-        onclick={toggleDropdown}>
+        onclick={() => (dropdownOpen = !dropdownOpen)}>
         <div class="os-button-content">
           <div class="os-label">
-            <Icon name={files[target].icon} />
-            {files[target].label}
+            <Icon name={platforms[target].icon} />
+            {platforms[target].label}
           </div>
           <Icon name="chevron-down" />
         </div>
       </Button>
       <div class="dropdown-content" class:show={dropdownOpen}>
-        {#each Object.entries(files) as [extension, file]}
+        {#each Object.entries(platforms) as [platform, { icon, label }]}
           <button
             class="dropdown-item"
-            onclick={() => selectTarget(extension as keyof typeof files)}>
-            <Icon name={file.icon} />
-            {file.label}
+            onclick={() => {
+              target = platform as keyof typeof platforms;
+              dropdownOpen = false;
+            }}>
+            <Icon name={icon} />
+            {label}
           </button>
         {/each}
       </div>
     </div>
     <div style:flex="1" style:width="100%" style:overflow="hidden">
-      <Command flatLeft {command} fullWidth></Command>
+      <Command flatLeft command={platforms[target].command} fullWidth></Command>
     </div>
   </div>
   <div class="download-instructions">
-    {#if target === "dmg"}
+    {#if target === "macOS"}
       <p>
         Download and open the DMG file, then drag the Radicle app to your
         Applications folder.
       </p>
-    {:else}
+    {:else if target === "Linux"}
       <!-- prettier-ignore -->
       <p>
         Download, make the file executable with <code>chmod +x</code>, and run
         it.
+      </p>
+    {:else if target === "NixOS"}
+      <!-- prettier-ignore -->
+      <p>
+        Give it a try with <code>nix run</code> and if you like it, make it
+        permanent with <code>nix profile install</code>.
       </p>
     {/if}
   </div>
