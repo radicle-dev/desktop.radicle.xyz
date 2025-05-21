@@ -23,6 +23,11 @@
       label: "NixOS",
       command: `nix run git+https://seed.radicle.xyz/z4D5UCArafTzTQpDZNQRuqswh3ury.git?rev=${buildSha}`,
     },
+    Windows: {
+      icon: "windows",
+      label: "Windows WSL2",
+      command: undefined,
+    },
   } as const;
 
   let target: keyof typeof platforms = $state(
@@ -114,7 +119,7 @@
       <Button
         fixedWidth="200px"
         variant="ghost"
-        flatRight
+        flatRight={platforms[target].command !== undefined}
         onclick={() => (dropdownOpen = !dropdownOpen)}>
         <div class="os-button-content">
           <div class="os-label">
@@ -138,9 +143,12 @@
         {/each}
       </div>
     </div>
-    <div style:flex="1" style:width="100%" style:overflow="hidden">
-      <Command flatLeft command={platforms[target].command} fullWidth></Command>
-    </div>
+    {#if platforms[target].command !== undefined}
+      <div style:flex="1" style:width="100%" style:overflow="hidden">
+        <Command flatLeft command={platforms[target].command!} fullWidth
+        ></Command>
+      </div>
+    {/if}
   </div>
   <div class="download-instructions">
     {#if target === "macOS"}
@@ -159,6 +167,13 @@
       <p>
         Give it a try with <code>nix run</code> and if you like it, make it
         permanent with <code>nix profile install</code>.
+      </p>
+    {:else if target === "Windows"}
+      <p>
+        Use <a href="https://learn.microsoft.com/en-us/windows/wsl/install">
+          WSL2
+        </a>
+        with any of the Linux install options to run Radicle Desktop on Windows.
       </p>
     {/if}
   </div>
