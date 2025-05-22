@@ -3,7 +3,7 @@
   import Command from "./Command.svelte";
   import Icon from "./Icon.svelte";
 
-  const buildSha = "25c6ab322b697ace4bd30bce2c515e659a14bccb";
+  const buildSha = "33dd37714b7dbf56a11339a4c6f56f11d8b85351";
 
   const platforms = {
     macOS: {
