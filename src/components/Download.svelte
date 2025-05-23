@@ -12,11 +12,16 @@
       command:
         "curl -OJ https://minio-api.radworks.garden/radworks-releases/radicle-desktop/latest/dmg/radicle-desktop-aarch64.dmg",
     },
-    Linux: {
+    LinuxAppImage: {
       icon: "linux",
       command:
         "curl -OJ https://minio-api.radworks.garden/radworks-releases/radicle-desktop/latest/appimage/radicle-desktop-amd64.AppImage",
       label: "Linux AppImage",
+    },
+    LinuxDebian: {
+      icon: "linux",
+      label: "Debian/Ubuntu",
+      command: undefined,
     },
     NixOS: {
       icon: "nixos",
@@ -31,7 +36,7 @@
   } as const;
 
   let target: keyof typeof platforms = $state(
-    navigator.platform.startsWith("Mac") ? "macOS" : "Linux",
+    navigator.platform.startsWith("Mac") ? "macOS" : "LinuxDebian",
   );
 
   let dropdownOpen = $state(false);
@@ -111,6 +116,10 @@
     align-items: center;
     gap: 6px;
   }
+  .instructions-box {
+    background: var(--color-fill-ghost);
+    padding: 0.75rem 1rem;
+  }
 </style>
 
 <div class="buttons">
@@ -156,7 +165,23 @@
         Download and open the DMG file, then drag the Radicle app to your
         Applications folder.
       </p>
-    {:else if target === "Linux"}
+    {:else if target === "LinuxDebian"}
+      <!-- prettier-ignore -->
+      <p>
+        Add the following line to your <code>/etc/apt/sources.list</code>:
+      </p>
+      <p class="instructions-box txt-monospace txt-small">
+        deb [trusted=yes]
+        https://minio-api.radworks.garden/radworks-releases/radicle-desktop/debian
+        unstable main
+      </p>
+      <p>Run the following command to install Radicle Desktop:</p>
+      <p class="instructions-box txt-monospace txt-small">
+        $ sudo apt update
+        <br />
+        $ sudo apt install radicle-desktop
+      </p>
+    {:else if target === "LinuxAppImage"}
       <!-- prettier-ignore -->
       <p>
         Download, make the file executable with <code>chmod +x</code>, and run
