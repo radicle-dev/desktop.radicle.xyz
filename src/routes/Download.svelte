@@ -23,6 +23,11 @@
       label: "Debian/Ubuntu",
       command: undefined,
     },
+    LinuxArch: {
+      icon: "archlinux",
+      label: "Arch Linux",
+      command: "yay -S radicle-desktop",
+    },
     NixOS: {
       icon: "nixos",
       label: "NixOS",
@@ -186,6 +191,20 @@
       <p>
         Download, make the file executable with <code>chmod +x</code>, and run
         it.
+      </p>
+    {:else if target === "LinuxArch"}
+      <!-- prettier-ignore -->
+      <p>
+        A <a
+          href="https://aur.archlinux.org/packages/radicle-desktop"><code>radicle-desktop</code></a>
+        package is available from the Arch User Repository.
+      </p>
+      <p>
+        See the Arch Linux Wiki to learn how to <a
+          href="https://wiki.archlinux.org/title/Arch_User_Repository#Installing_and_upgrading_packages">
+          install packages from the AUR
+        </a>
+        .
       </p>
     {:else if target === "NixOS"}
       <!-- prettier-ignore -->
