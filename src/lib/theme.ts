@@ -1,15 +1,12 @@
+import { browser } from "$app/environment";
 import { writable } from "svelte/store";
-import { literal, union, z } from "zod";
+import z from "zod";
 
-const themeSchema = union([literal("dark"), literal("light")]);
+const themeSchema = z.union([z.literal("dark"), z.literal("light")]);
 type Theme = z.infer<typeof themeSchema>;
 
-function isBrowser(): boolean {
-  return typeof window !== "undefined";
-}
-
 function loadTheme(): Theme {
-  if (!isBrowser()) return "light";
+  if (!browser) return "light";
 
   const stored = localStorage.getItem("theme");
   if (stored && themeSchema.safeParse(stored).success) {
@@ -26,8 +23,9 @@ function createThemeStore() {
   return {
     subscribe,
     set: (value: Theme) => {
-      if (isBrowser()) {
+      if (browser) {
         localStorage.setItem("theme", value);
+        document.documentElement.setAttribute("data-theme", value);
       }
       set(value);
     },

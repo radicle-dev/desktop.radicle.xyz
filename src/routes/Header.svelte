@@ -1,6 +1,7 @@
 <script lang="ts">
   import { theme } from "$lib/theme";
   import { scrolled } from "$lib/stores";
+  import { page } from "$app/state";
 
   import NakedButton from "$lib/components/NakedButton.svelte";
   import Icon from "$lib/components/Icon.svelte";
@@ -58,6 +59,12 @@
     <NakedButton variant="ghost" onclick={toggleTheme}>
       <Icon name={$theme === "dark" ? "moon" : "sun"}></Icon>
     </NakedButton>
+    <a href="/blog">
+      <NakedButton variant="ghost" active={page.url.pathname.includes("blog")}>
+        <Icon size="16" name="blog" />
+        Blog
+      </NakedButton>
+    </a>
     <a href="https://radicle.xyz" target="_blank">
       <NakedButton variant="ghost">
         <Icon size="16" name="seedling" />

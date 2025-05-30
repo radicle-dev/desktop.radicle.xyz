@@ -17,6 +17,6 @@
     "strict": true,
     "target": "es2023",
     "types": ["vite/client"],
-    "useDefineForClassFields": true,
+    "useDefineForClassFields": true
   }
 }

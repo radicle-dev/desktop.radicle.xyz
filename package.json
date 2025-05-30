@@ -11,12 +11,16 @@
     "format": "npx prettier '**/*.@(ts|js|svelte|json|css|html|yml)' --write"
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "^6.0.1",
+    "@sveltejs/adapter-static": "^3.0.8",
     "@sveltejs/kit": "^2.21.1",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@tsconfig/svelte": "^5.0.4",
+    "mdsvex": "^0.12.6",
     "prettier": "^3.5.3",
     "prettier-plugin-svelte": "^3.4.0",
+    "rehype-slug": "^6.0.0",
+    "remark-unwrap-images": "^4.0.1",
+    "shiki": "^3.4.2",
     "svelte": "^5.33.10",
     "svelte-check": "^4.2.1",
     "typescript": "^5.8.3",

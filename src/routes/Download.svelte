@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { browser } from "$app/environment";
+
   import Button from "$lib/components/Button.svelte";
   import Command from "$lib/components/Command.svelte";
   import Icon from "$lib/components/Icon.svelte";
@@ -41,7 +43,7 @@
   } as const;
 
   let target: keyof typeof platforms = $state(
-    navigator.platform.startsWith("Mac") ? "macOS" : "LinuxDebian",
+    browser && navigator.platform.startsWith("Mac") ? "macOS" : "LinuxDebian",
   );
 
   let dropdownOpen = $state(false);
