@@ -1,7 +1,8 @@
 <script lang="ts">
+  import { base } from "$app/paths";
+
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
-  import videoSrc from "../assets/desktop-review.mp4"; // Import the video source
   import Download from "./Download.svelte";
 
   let isPlaying = false;
@@ -38,7 +39,7 @@
 
     // Set the video source dynamically
     const source = document.createElement("source");
-    source.src = videoSrc;
+    source.src = `${base}/desktop-review.mp4`;
     source.type = "video/mp4";
     video.appendChild(source);
 
@@ -294,7 +295,7 @@
           class="lightbox-video"
           controls
           autoplay>
-          <source src={videoSrc} type="video/mp4" />
+          <source src="{base}/desktop-review.mp4" type="video/mp4" />
           <track kind="captions" />
           Your browser does not support the video tag.
         </video>

@@ -1,8 +1,9 @@
 <script lang="ts">
-  import NakedButton from "./NakedButton.svelte";
-  import Icon from "./Icon.svelte";
-  import { theme } from "../lib/theme";
-  import { scrolled } from "../lib/stores";
+  import { theme } from "$lib/theme";
+  import { scrolled } from "$lib/stores";
+
+  import NakedButton from "$lib/components/NakedButton.svelte";
+  import Icon from "$lib/components/Icon.svelte";
 
   function toggleTheme() {
     theme.set($theme === "dark" ? "light" : "dark");
@@ -33,6 +34,14 @@
     justify-content: space-between;
     align-items: center;
   }
+  a {
+    color: var(--color-foreground-contrast);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--color-foreground-contrast);
+    text-decoration: none;
+  }
 
   @media (min-width: 719.98px) {
     .header-right {
@@ -44,31 +53,30 @@
 <div
   class="header"
   style:box-shadow={`${$scrolled ? "0 4px 8px 0 rgba(0,0,0,0.075)" : "0 4px 8px 0 rgba(0,0,0,0)"}`}>
-  <span class="title">RADWORKS</span>
+  <a href="/"><span class="title">RADWORKS</span></a>
   <div class="header-right">
     <NakedButton variant="ghost" onclick={toggleTheme}>
       <Icon name={$theme === "dark" ? "moon" : "sun"}></Icon>
     </NakedButton>
-    <NakedButton
-      onclick={() => window.open("https://radicle.xyz")}
-      variant="ghost">
-      <Icon size="16" name="seedling" />
-      Radicle
-    </NakedButton>
-    <NakedButton
-      variant="ghost"
-      onclick={() => window.open("https://bsky.app/profile/radicle.xyz")}>
-      <Icon size="16" name="bluesky" />
-      Bluesky
-    </NakedButton>
-    <NakedButton
-      onclick={() =>
-        window.open(
-          "https://radicle.zulipchat.com/#narrow/channel/369873-support",
-        )}
-      variant="ghost">
-      <Icon size="16" name="zulip" />
-      Support
-    </NakedButton>
+    <a href="https://radicle.xyz" target="_blank">
+      <NakedButton variant="ghost">
+        <Icon size="16" name="seedling" />
+        Radicle
+      </NakedButton>
+    </a>
+    <a href="https://bsky.app/profile/radicle.xyz" target="_blank">
+      <NakedButton variant="ghost">
+        <Icon size="16" name="bluesky" />
+        Bluesky
+      </NakedButton>
+    </a>
+    <a
+      href="https://radicle.zulipchat.com/#narrow/channel/369873-support"
+      target="_blank">
+      <NakedButton variant="ghost">
+        <Icon size="16" name="zulip" />
+        Support
+      </NakedButton>
+    </a>
   </div>
 </div>

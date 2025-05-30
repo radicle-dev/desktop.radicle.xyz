@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Button from "./Button.svelte";
-  import Command from "./Command.svelte";
-  import Icon from "./Icon.svelte";
+  import Button from "$lib/components/Button.svelte";
+  import Command from "$lib/components/Command.svelte";
+  import Icon from "$lib/components/Icon.svelte";
 
   const buildSha = "33dd37714b7dbf56a11339a4c6f56f11d8b85351";
 

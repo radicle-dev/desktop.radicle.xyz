@@ -2,7 +2,7 @@
   import debounce from "lodash/debounce";
   import { createEventDispatcher } from "svelte";
 
-  import { toClipboard } from "../lib/utils";
+  import { toClipboard } from "$lib/utils";
 
   import Icon from "./Icon.svelte";
 

@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./src/assets/seedling.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <link rel="icon" href="%sveltekit.assets%/seedling.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <title>Radworks</title>
     <meta name="name" content="Radworks" />
     <meta
@@ -30,12 +31,26 @@
     <meta
       name="twitter:image"
       content="https://app.radicle.xyz/images/radicle-og-853x853-624f.png" />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%sveltekit.assets%/global.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%sveltekit.assets%/colors.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="%sveltekit.assets%/typography.css" />
+    %sveltekit.head%
   </head>
-  <body>
+  <body data-sveltekit-preload-data="hover">
     <script
       data-goatcounter="https://radworks.goatcounter.com/count"
       async
       src="//gc.zgo.at/count.js"></script>
-    <script type="module" src="/src/main.js"></script>
+    <div style="display: contents">%sveltekit.body%</div>
   </body>
 </html>
