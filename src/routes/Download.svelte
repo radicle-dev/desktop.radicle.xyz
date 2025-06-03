@@ -211,9 +211,7 @@
         Add the following line to your <code>/etc/apt/sources.list</code>:
       </p>
         <p class="instructions-box txt-monospace txt-small">
-          deb [trusted=yes]
-          https://minio-api.radworks.garden/radworks-releases/radicle-desktop/debian
-          unstable main
+          deb [trusted=yes] https://radicle.xyz/apt unstable main
         </p>
         <p>Run the following command to install Radicle Desktop:</p>
         <p class="instructions-box txt-monospace txt-small">
