@@ -3,7 +3,6 @@
 
   import { scrolled } from "$lib/stores";
 
-  import Footer from "./Footer.svelte";
   import Header from "./Header.svelte";
 
   let { children } = $props();
@@ -27,6 +26,14 @@
     align-items: center;
     overflow: scroll;
   }
+
+  footer {
+    display: inline;
+    text-align: center;
+    margin-top: auto;
+    padding: 1rem 0;
+    color: var(--color-foreground-dim);
+  }
 </style>
 
 <div class="layout">
@@ -36,5 +43,7 @@
     {@render children?.()}
   </main>
 
-  <Footer />
+  <footer class="txt-small">
+    &copy; {new Date().getFullYear()} Radicle
+  </footer>
 </div>

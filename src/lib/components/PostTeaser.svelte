@@ -10,14 +10,23 @@
   a {
     text-decoration: none;
     color: var(--color-foreground-default);
+    padding: 1rem;
+    margin: 0 1.5rem;
+    font-weight: var(--font-weight-regular);
   }
 
   a:hover {
     text-decoration: none;
-    color: var(--color-foreground-emphasized);
+    color: var(--color-foreground-default);
+    background-color: var(--color-background-float);
   }
   .heading {
     margin-bottom: 1rem;
+  }
+  h4 {
+    font-weight: var(--font-weight-regular);
+    font-style: italic;
+    color: var(--color-foreground-dim);
   }
 </style>
 
@@ -25,10 +34,10 @@
   <a href={`/blog/${post.slug}`}>
     <div class="heading">
       <h3>{post.title}</h3>
-      <div class="txt-small">
+      <h4>
         Published {formatDate(post.date)} by
         {post.author}
-      </div>
+      </h4>
     </div>
     <div>{post.description}</div>
   </a>

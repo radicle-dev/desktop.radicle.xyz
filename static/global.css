@@ -279,3 +279,9 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+.global-flex {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

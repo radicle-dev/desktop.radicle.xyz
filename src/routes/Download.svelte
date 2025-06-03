@@ -55,8 +55,6 @@
     flex-direction: column;
     align-items: flex-start;
     padding-top: 2rem;
-    width: 100%;
-    max-width: 600px;
   }
 
   .buttons a {

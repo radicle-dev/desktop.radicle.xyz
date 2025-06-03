@@ -51,6 +51,7 @@
       | "linux"
       | "lock"
       | "markdown"
+      | "menu"
       | "moon"
       | "more-vertical"
       | "nixos"
@@ -88,7 +89,7 @@
 
 <style>
   svg {
-    flex-shrink: 1;
+    flex-shrink: 0;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     user-select: none;
@@ -782,6 +783,10 @@
     <path d="M8 11H9V12H8V11Z" />
     <path d="M7 10H8V12H7V10Z" />
     <path d="M3 4.00003H4V6.00003H3V4.00003Z" />
+  {:else if name === "menu"}
+    <path d="M2 3L14 3V5L2 5L2 3Z" />
+    <path d="M2 7L14 7V9L2 9L2 7Z" />
+    <path d="M2 11L14 11V13L2 13L2 11Z" />
   {:else if name === "moon"}
     <path d="M4 3H6V4H4V3Z" />
     <path d="M3 4L4 4L4 6H3V4Z" />

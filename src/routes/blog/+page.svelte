@@ -8,7 +8,7 @@
     display: flex;
     min-height: calc(100vh - 12rem);
     flex-direction: column;
-    margin-top: 2rem;
+    padding: 2rem 0;
   }
 </style>
 

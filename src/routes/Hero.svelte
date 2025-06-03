@@ -234,6 +234,10 @@
   }
 
   @media (min-width: 719.98px) {
+    .download {
+      width: 100%;
+      max-width: 600px;
+    }
     .container {
       padding: 2rem 4rem 4rem 4rem;
     }
@@ -245,7 +249,10 @@
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 719.98px) {
+    .download {
+      width: 100vw;
+    }
     .close-button {
       top: 1rem;
       right: 1rem;
@@ -264,7 +271,9 @@
       your team — all on a peer-to-peer network. Say goodbye to platform
       lock-in. Radicle runs locally and syncs with your network.
     </span>
-    <Download />
+    <div class="download">
+      <Download />
+    </div>
   </div>
   <div class="video-container">
     <div class="preloader">Loading...</div>
