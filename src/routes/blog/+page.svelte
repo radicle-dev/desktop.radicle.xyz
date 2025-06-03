@@ -13,7 +13,7 @@
 </style>
 
 <svelte:head>
-  <title>Radworks • Blog</title>
+  <title>Radicle • Blog</title>
 </svelte:head>
 
 <div class="container">

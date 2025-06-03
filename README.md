@@ -1,4 +1,4 @@
-### www.radworks.garden
+### radicle.xyz/desktop
 
 Radicle Desktop landing page.
 

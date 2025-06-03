@@ -5,13 +5,13 @@
 </script>
 
 <svelte:head>
-  <title>Radworks</title>
+  <title>Radicle Desktop</title>
 
   <meta
     name="description"
     content="Local-first code collaboration on a peer-to-peer network" />
 
-  <meta property="og:url" content="https://radworks.garden" />
+  <meta property="og:url" content="https://radicle.xyz/desktop" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Radicle Desktop" />
   <meta
@@ -22,8 +22,8 @@
     content="https://app.radicle.xyz/images/radicle-og-853x853-624f.png" />
 
   <meta name="twitter:card" content="summary" />
-  <meta property="twitter:domain" content="radworks.garden" />
-  <meta property="twitter:url" content="https://radworks.garden" />
+  <meta property="twitter:domain" content="radicle.xyz" />
+  <meta property="twitter:url" content="https://radicle.xyz/desktop" />
   <meta name="twitter:title" content="Radicle Desktop" />
   <meta
     name="twitter:description"

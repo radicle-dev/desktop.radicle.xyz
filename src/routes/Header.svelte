@@ -101,7 +101,7 @@
 <div
   class="header"
   style:box-shadow={`${$scrolled ? "0 4px 8px 0 rgba(0,0,0,0.075)" : "0 4px 8px 0 rgba(0,0,0,0)"}`}>
-  <a href="/"><span class="title">RADWORKS</span></a>
+  <a href="/"><span class="title">RADICLE DESKTOP</span></a>
 
   <div
     class="global-flex"
