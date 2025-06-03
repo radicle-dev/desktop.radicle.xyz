@@ -5,6 +5,11 @@
       "source": "/:path*",
       "destination": "https://radicle.xyz/desktop/:path*",
       "permanent": false
+    },
+    {
+      "source": "/",
+      "destination": "https://radicle.xyz/desktop/",
+      "permanent": false
     }
   ]
 }
