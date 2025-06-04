@@ -3,31 +3,31 @@
     {
       title: "Peer-to-Peer by Default",
       description:
-        "Radicle connects devices directly in a global peer-to-peer network — no central servers, no single point of failure.<br/>You host and sync code with others just by running the app.",
+        "Radicle connects devices directly in a global peer-to-peer network - no central servers, no single point of failure.<br/>You host and sync code with others just by running the app.",
       icon: "🕸️",
     },
     {
       title: "Git-Native Collaboration",
       description:
-        "Radicle stores issues and patches inside Git, making them portable, versioned, and fully offline-friendly.<br/>Social collaboration is now as decentralized as your code.",
+        "Radicle stores issues and patches inside Git, making them portable, versioned, and fully offline-friendly.<br/>Social collaboration is synchonized together with your code.",
       icon: "🧱",
     },
     {
-      title: "Always Local, Always Yours",
+      title: "Local-First",
       description:
-        "Your entire repository — code, issues, patches — lives on your machine, always available.<br/>Work offline, sync when you’re online.",
+        "Your entire repository - code, issues, patches - lives on your machine, always available.<br/>Work offline and sync when you’re online.",
       icon: "💾",
     },
     {
       title: "No Accounts, Just Keys",
       description:
-        "Identities in Radicle are public keys you generate locally — no signups, passwords, or email needed.<br/>You’re in control of your identity, always.",
+        "Identities in Radicle are public keys you generate locally - no signup needed.<br/>You are fully in control of your identity.",
       icon: "🆔",
     },
     {
-      title: "Trust Through Cryptography",
+      title: "Cryptographic Verification",
       description:
-        "Every repository and identity is verified through cryptographic signatures, not centralized authority.",
+        "Every action you take is signed with your pirvate key and can be verified by everyone else. There is no need to trust a third party.",
       icon: "🔐",
     },
   ] as const;

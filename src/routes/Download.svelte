@@ -44,7 +44,7 @@
       macOS: {
         icon: "apple",
         label: "Apple Silicon",
-        command: `curl --output radicle-desktop-${version}-${shortBuildSha}-aarch64.dmg https://minio-api.radworks.garden/radworks-releases/radicle-desktop/latest/dmg/radicle-desktop-aarch64.dmg`,
+        command: `curl --output ~/Downloads/radicle-desktop-${version}-${shortBuildSha}-aarch64.dmg https://minio-api.radworks.garden/radworks-releases/radicle-desktop/latest/dmg/radicle-desktop-aarch64.dmg && open ~/Downloads/radicle-desktop-${version}-${shortBuildSha}-aarch64.dmg`,
       },
       LinuxAppImage: {
         icon: "linux",
@@ -202,7 +202,7 @@
     <div class="download-instructions">
       {#if target === "macOS"}
         <p>
-          Download and open the DMG file, then drag the Radicle app to your
+          Downloads and opens the DMG file. Just drag the Radicle app to your
           Applications folder.
         </p>
       {:else if target === "LinuxDebian"}

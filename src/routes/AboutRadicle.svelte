@@ -190,7 +190,9 @@
       <div class="float-background">
         <div class="title-block">
           <span class="h2">Getting started</span>
-          <span class="subtitle">Get on the network in 4 easy steps.</span>
+          <span class="subtitle">
+            Participate in the network in 4 easy steps.
+          </span>
         </div>
         <div class="widget-container">
           <div class="blocks-container">

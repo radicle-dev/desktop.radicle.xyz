@@ -262,14 +262,12 @@
 
 <div class="container">
   <div class="hero-text">
-    <span class="h1">
-      Local-first code collaboration <br />
-      on a peer-to-peer network
-    </span>
+    <span class="h1">Code collaboration</span>
+    <span class="h2">Local-First & Synced on the Radicle Network</span>
     <span class="subtitle">
-      Radicle Desktop lets you manage issues, review code, and stay in sync with
-      your team — all on a peer-to-peer network. Say goodbye to platform
-      lock-in. Radicle runs locally and syncs with your network.
+      Radicle Desktop offers a familiar user interface to manage issues and
+      review code - all on the radicle peer-to-peer network. Radicle Desktop
+      runs locally and syncs with the network.
     </span>
     <div class="download">
       <Download />
