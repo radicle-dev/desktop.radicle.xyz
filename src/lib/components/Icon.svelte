@@ -1,6 +1,6 @@
 <script lang="ts">
   interface Props {
-    size?: "16" | "32";
+    size?: "16" | "32" | "128";
     onclick?: (e: MouseEvent) => void;
     disabled?: boolean;
     styleDisplay?: string;
@@ -20,6 +20,7 @@
       | "broom-double"
       | "checkmark"
       | "chevron-down"
+      | "chevron-left"
       | "chevron-right"
       | "clipboard"
       | "clock"
@@ -271,6 +272,17 @@
     <path d="M6 8V9H5L5 8L6 8Z" />
     <path d="M8 10V11H7L7 10H8Z" />
     <path d="M7 9L7 10H6L6 9L7 9Z" />
+  {:else if name === "chevron-left"}
+    <path d="M6.5 9H5.5L5.5 8H6.5L6.5 9Z" />
+    <path d="M7.5 10L6.5 10L6.5 9L7.5 9L7.5 10Z" />
+    <path d="M8.5 11L7.5 11V10H8.5V11Z" />
+    <path d="M9.5 12H8.5V11H9.5V12Z" />
+    <path d="M10.5 13H9.5L9.5 12H10.5V13Z" />
+    <path d="M10.5 4L9.5 4V3L10.5 3V4Z" />
+    <path d="M9.5 5L8.5 5L8.5 4H9.5V5Z" />
+    <path d="M8.5 6L7.5 6L7.5 5H8.5V6Z" />
+    <path d="M6.5 8H5.5L5.5 7H6.5L6.5 8Z" />
+    <path d="M7.5 7H6.5V6L7.5 6L7.5 7Z" />
   {:else if name === "chevron-right"}
     <path d="M9 7L10 7L10 8L9 8L9 7Z" />
     <path d="M8 6H9V7H8L8 6Z" />

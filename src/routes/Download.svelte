@@ -75,7 +75,9 @@
   }
 
   let target: Platform = $state(
-    browser && navigator.platform.startsWith("Mac") ? "macOS" : "LinuxDebian",
+    browser && /^(Mac|iPhone|iPad)/.test(navigator.platform)
+      ? "macOS"
+      : "LinuxDebian",
   );
 
   let dropdownOpen = $state(false);
@@ -202,8 +204,9 @@
     <div class="download-instructions">
       {#if target === "macOS"}
         <p>
-          Downloads and opens the DMG file. Just drag the Radicle app to your
-          Applications folder.
+          Run the command in your terminal to download and open the DMG file.
+          <br />
+          Then drag the Radicle app to your Applications folder.
         </p>
       {:else if target === "LinuxDebian"}
         <!-- prettier-ignore -->
@@ -232,12 +235,12 @@
           href="https://aur.archlinux.org/packages/radicle-desktop"><code>radicle-desktop</code></a>
         package is available from the Arch User Repository.
       </p>
+        <!-- prettier-ignore -->
         <p>
           See the Arch Linux Wiki to learn how to <a
             href="https://wiki.archlinux.org/title/Arch_User_Repository#Installing_and_upgrading_packages">
             install packages from the AUR
-          </a>
-          .
+          </a>.
         </p>
       {:else if target === "NixOS"}
         <!-- prettier-ignore -->

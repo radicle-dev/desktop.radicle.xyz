@@ -30,7 +30,7 @@
     display: inline;
     text-align: center;
     margin-top: auto;
-    padding: 1rem 0;
+    padding: 8rem 0 2rem 0;
     color: var(--color-foreground-dim);
   }
 </style>
@@ -42,5 +42,5 @@
     {@render children?.()}
   </main>
 
-  <footer class="txt-small">&copy; 2025 Radicle</footer>
+  <footer class="txt-small">&copy; 2025 The Radicle Team</footer>
 </div>
