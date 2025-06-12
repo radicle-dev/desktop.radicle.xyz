@@ -182,6 +182,14 @@
       padding: 0;
     }
   }
+  @media (max-width: 719.98px) {
+    .title-block {
+      margin-bottom: 2rem;
+    }
+    .float-background {
+      padding: 0.5rem;
+    }
+  }
 </style>
 
 <div class="container">

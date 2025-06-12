@@ -1,7 +1,6 @@
 <script lang="ts">
   import { theme } from "$lib/theme";
   import { scrolled } from "$lib/stores";
-  import { page } from "$app/state";
 
   import NakedButton from "$lib/components/NakedButton.svelte";
   import Icon from "$lib/components/Icon.svelte";
@@ -67,30 +66,28 @@
 </style>
 
 {#snippet menu()}
-  <a href="/blog">
-    <NakedButton variant="ghost" active={page.url.pathname.includes("blog")}>
+  <a href="https://radicle.xyz/#blog">
+    <NakedButton variant="ghost">
       <Icon size="16" name="blog" />
       Blog
     </NakedButton>
   </a>
 
-  <a href="https://radicle.xyz" target="_blank">
+  <a href="https://radicle.xyz">
     <NakedButton variant="ghost">
       <Icon size="16" name="seedling" />
       Radicle
     </NakedButton>
   </a>
 
-  <a href="https://bsky.app/profile/radicle.xyz" target="_blank">
+  <a href="https://bsky.app/profile/radicle.xyz">
     <NakedButton variant="ghost">
       <Icon size="16" name="bluesky" />
       Bluesky
     </NakedButton>
   </a>
 
-  <a
-    href="https://radicle.zulipchat.com/#narrow/channel/369873-support"
-    target="_blank">
+  <a href="https://radicle.zulipchat.com/#narrow/channel/369873-support">
     <NakedButton variant="ghost">
       <Icon size="16" name="zulip" />
       Support

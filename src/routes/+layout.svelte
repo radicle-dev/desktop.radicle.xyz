@@ -24,7 +24,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow: scroll;
   }
 
   footer {
@@ -43,7 +42,5 @@
     {@render children?.()}
   </main>
 
-  <footer class="txt-small">
-    &copy; {new Date().getFullYear()} Radicle
-  </footer>
+  <footer class="txt-small">&copy; 2025 Radicle</footer>
 </div>

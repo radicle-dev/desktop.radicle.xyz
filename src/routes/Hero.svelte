@@ -251,7 +251,7 @@
 
   @media (max-width: 719.98px) {
     .download {
-      width: 100vw;
+      width: calc(100vw - 5rem);
     }
     .close-button {
       top: 1rem;
