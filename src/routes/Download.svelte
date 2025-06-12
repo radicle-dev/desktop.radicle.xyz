@@ -64,7 +64,7 @@
       NixOS: {
         icon: "nixos",
         label: "NixOS",
-        command: `nix run git+https://seed.radicle.xyz/z4D5UCArafTzTQpDZNQRuqswh3ury.git?rev=${buildSha}`,
+        command: `nix run 'git+https://seed.radicle.xyz/z4D5UCArafTzTQpDZNQRuqswh3ury.git?rev=${buildSha}'`,
       },
       WindowsWSL2: {
         icon: "windows",
