@@ -209,12 +209,21 @@
           Then drag the Radicle app to your Applications folder.
         </p>
       {:else if target === "LinuxDebian"}
+        <p>Run the following commands to install the Radicle keyring:</p>
+        <p class="instructions-box txt-monospace txt-small">
+          $ curl -LO https://radicle.xyz/apt/radicle-archive-keyring.deb
+          <br />
+          $ chmod a+r radicle-archive-keyring.deb
+          <br />
+          $ sudo apt install ./radicle-archive-keyring.deb
+        </p>
         <!-- prettier-ignore -->
         <p>
-        Add the following line to your <code>/etc/apt/sources.list</code>:
-      </p>
+          Add the following line to your <code>/etc/apt/sources.list</code>:
+        </p>
         <p class="instructions-box txt-monospace txt-small">
-          deb [trusted=yes] https://radicle.xyz/apt unstable main
+          deb [signed-by=/usr/share/radicle/radicle-archive-keyring.asc]
+          https://radicle.xyz/apt unstable main
         </p>
         <p>Run the following command to install Radicle Desktop:</p>
         <p class="instructions-box txt-monospace txt-small">
