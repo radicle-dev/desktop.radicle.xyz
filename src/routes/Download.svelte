@@ -223,7 +223,7 @@
         </p>
         <p class="instructions-box txt-monospace txt-small">
           deb [signed-by=/usr/share/radicle/radicle-archive-keyring.asc]
-          https://radicle.xyz/apt unstable main
+          https://radicle.xyz/apt release main
         </p>
         <p>Run the following command to install Radicle Desktop:</p>
         <p class="instructions-box txt-monospace txt-small">
