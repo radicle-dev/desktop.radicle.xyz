@@ -25,6 +25,7 @@
       | "clipboard"
       | "clock"
       | "clone"
+      | "code"
       | "collapse"
       | "collapse-panel"
       | "comment"
@@ -338,6 +339,27 @@
     <path d="M7 2L9 2L9 3H7V2Z" />
     <path d="M2 10H4V11H2L2 10Z" />
     <path d="M11 10L14 10L14 11H11V10Z" />
+  {:else if name === "code"}
+    <path d="M13 7H14V8H13V7Z" />
+    <path d="M3 9H2L2 8H3L3 9Z" />
+    <path d="M12 6H13V7L12 7V6Z" />
+    <path d="M4 10H3L3 9H4L4 10Z" />
+    <path d="M11 5L12 5V6L11 6V5Z" />
+    <path d="M5 11H4L4 10H5V11Z" />
+    <path d="M10 4H11V5L10 5V4Z" />
+    <path d="M6 12H5V11H6V12Z" />
+    <path d="M9 3H10V4L9 4V3Z" />
+    <path d="M7 13H6L6 12H7V13Z" />
+    <path d="M9 12L10 12V13L9 13V12Z" />
+    <path d="M7 4L6 4L6 3L7 3V4Z" />
+    <path d="M10 11H11V12L10 12L10 11Z" />
+    <path d="M6 5H5V4H6L6 5Z" />
+    <path d="M11 10H12L12 11H11L11 10Z" />
+    <path d="M5 6H4L4 5H5V6Z" />
+    <path d="M13 8H14V9H13V8Z" />
+    <path d="M3 8H2L2 7H3L3 8Z" />
+    <path d="M12 9L13 9V10L12 10V9Z" />
+    <path d="M4 7H3L3 6H4L4 7Z" />
   {:else if name === "collapse"}
     <path d="M7 5.5L8 5.5L8 4.5L7 4.5L7 5.5Z" />
     <path d="M6 4.5L7 4.5L7 3.5L6 3.5L6 4.5Z" />

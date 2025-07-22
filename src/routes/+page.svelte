@@ -166,12 +166,9 @@
     gap: 4rem;
   }
   .feature-box {
-    display: grid;
-    grid-template-columns: 1rem auto;
-    grid-template-rows: 1rem auto;
-    column-gap: 1rem;
-    row-gap: 1rem;
     width: 100%;
+    display: flex;
+    gap: 1rem;
   }
 
   @media (min-width: 1011px) {
@@ -272,52 +269,65 @@
   </div>
   <div class="features-grid">
     <div class="feature-box">
-      <Icon name="inbox" size="16" />
-      <div><strong>Notifications</strong></div>
-      <div></div>
+      <Icon name="inbox" size="32" />
       <div>
-        Stay in the loop with built-in notifications designed for an inbox-zero
-        workflow.
+        <strong>Notifications</strong>
+        <div>
+          Stay in the loop with built-in notifications designed for an
+          inbox-zero workflow.
+        </div>
       </div>
     </div>
 
     <div class="feature-box">
-      <Icon name="patch" size="16" />
-      <div><strong>Patches</strong></div>
-      <div></div>
+      <Icon name="patch" size="32" />
       <div>
-        Propose code changes with patches and review your teammates’ work using
-        a familiar interface that supports common workflows.
+        <strong>Patches</strong>
+        <div>
+          Propose code changes with patches and review your teammates’ work
+          using a familiar interface that supports common workflows.
+        </div>
       </div>
     </div>
 
     <div class="feature-box">
-      <Icon name="markdown" size="16" />
-      <div><strong>Rich text & embeds</strong></div>
-      <div></div>
+      <Icon name="markdown" size="32" />
       <div>
-        Embed screenshots, videos, and other artifacts in issues, patches,
-        comments, and reviews — all with Markdown support. React to anything
-        with emojis to show your support.
+        <strong>Rich text & embeds</strong>
+        <div>
+          Embed screenshots, videos, and other artifacts in issues, patches,
+          comments, and reviews — all with Markdown support. React to anything
+          with emojis to show your support.
+        </div>
       </div>
     </div>
 
     <div class="feature-box">
-      <Icon name="issue" size="16" />
-      <div><strong>Issues</strong></div>
-      <div></div>
-      <div>Join discussions and manage work through issues.</div>
+      <Icon name="issue" size="32" />
+      <div>
+        <strong>Issues</strong>
+        <div>Join discussions and manage work through issues.</div>
+      </div>
     </div>
 
     <div class="feature-box">
+      <Icon name="offline" size="32" />
       <div>
-        <Icon name="offline" size="16" />
+        <strong>Works offline</strong>
+        <div>
+          Write and review code offline, then sync with your team when you're
+          back online.
+        </div>
       </div>
-      <div><strong>Works offline</strong></div>
-      <div></div>
+    </div>
+
+    <div class="feature-box">
+      <Icon name="code" size="32" />
       <div>
-        Write and review code offline, then sync with your team when you're back
-        online.
+        <strong>Code browser</strong>
+        <div>
+          Explore source code right in the app — no need to open your IDE.
+        </div>
       </div>
     </div>
   </div>
